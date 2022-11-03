@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Project",
+    "\\Project\\ClientApp",
+    "\\Project\\ServerApp",
+    "\\Project\\ServerApp\\bin\\Release\\net6.0"
+  ],
+  "SelectedNode": "\\Project\\ServerApp\\ServerApp.sln",
+  "PreviewInSolutionExplorer": false
+}
