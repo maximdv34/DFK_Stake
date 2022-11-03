@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\clientapp",
+    "\\ServerApp"
   ],
-  "SelectedNode": "\\ServerApp",
+  "SelectedNode": "\\ServerApp\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
