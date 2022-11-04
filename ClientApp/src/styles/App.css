@@ -1,0 +1,90 @@
+/*Main header container*/
+header{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    min-width: 650px;
+
+    background-color: rgba(50, 50, 50, 0.4);
+}
+
+/*Header containers*/
+header div{
+    display: flex;
+    text-transform:uppercase;
+    align-items:center;
+}
+
+/*Links inside containers*/
+header div a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: darkgray;
+}
+
+/*Logo*/
+header div a img{
+    height: 50px;
+    width: 50px;
+}
+
+/*Navigation buttons container*/
+.Navigation {
+    flex-grow: 1;
+    margin-left: 10%;
+}
+
+/*Website name*/
+.MainName{
+    color:white;
+    font-size: 20px;
+}
+
+/*ConnectWallet button container*/
+.ConnectWalletButton{
+    height: 66%;
+}
+
+/*ConnectWallet button*/
+.ConnectWalletButton button{
+    border-radius: 15px;
+    border-color: transparent;
+    color: white;
+    background-color: rgba(170, 170, 170, 0.2);
+    height: 100%;
+    margin-right: 20px;
+
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+/*ConnectWallet button click*/
+.ConnectWalletButton button:hover{
+    background-color: rgba(200,200,200, 0.5);
+
+    transition-property: background-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+}
+
+
+/*Links inside containers hover*/
+header div a:hover {
+    color: lightgray;
+    transition-property: color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+}
+
+
+/*MAIN STYLE*/
+
+/*Disable body and set background image*/
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url("../../public/static/images/Background.png");
+    background-size: cover;
+}

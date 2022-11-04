@@ -1,3 +1,58 @@
-.title-home{
+/*SignContainer*/
+.HomeMain{
+    font-size: 40px;
+    color: white;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Logo in SignContainer*/
+.HomeMain img {
+    display: flex;
+    width: 128px;
+    height: 128px;
+}
+
+/*Containers in MainContainer*/
+main div div{
+    padding: 30px;
+    margin: 50px;
+    background-color: rgba(130, 130, 130, 0.4);
+    border-radius: 40px;
+    color: white;
+}
+
+/*MainContainer*/
+main{
+    font-family:Arial;
+    font-stretch:narrower;
+}
+
+/*ButtonsContainer*/
+.ButtonsContainer{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/*ButtonsContainer buttons*/
+.ButtonsContainer button{
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    border-radius: 10px;
+    margin-left: 40px;
+    padding: 5px 35px 5px 35px;
+}
+
+
+/*ButtonsContainer buttons hover*/
+.ButtonsContainer button:hover{
+    background-color: rgba(200, 200, 200, 0.5);
+
+    transition-property: background-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
 }
