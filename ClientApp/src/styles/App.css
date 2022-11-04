@@ -12,7 +12,6 @@ header{
 /*Header containers*/
 header div{
     display: flex;
-    text-transform:uppercase;
     align-items:center;
 }
 
