@@ -24,6 +24,7 @@ header div a {
 
 /*Logo*/
 header div a img{
+    margin-top: 10px;
     height: 50px;
     width: 50px;
 }
