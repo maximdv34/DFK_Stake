@@ -4,7 +4,7 @@ header{
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    min-width: 650px;
+    
 
     background-color: rgba(50, 50, 50, 0.4);
 }
@@ -87,4 +87,6 @@ body {
     height: 100%;
     background-image: url("../../public/static/images/Background.png");
     background-size: cover;
+
+   
 }
