@@ -1,15 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import './styles/Home.css';
+import MainSign from "./MainSign.jsx";
 
 export default function Home() {
      return(
     <>
              <main>
-                 <div className="HomeMain">
-                     DFK Stake 
-                     <img src='./static/images/logo.png' /> 
-                 </div>
+                 <MainSign/>
                  <div>
                     <div>
                          <h1>Used by millions. Trusted with billions.</h1>

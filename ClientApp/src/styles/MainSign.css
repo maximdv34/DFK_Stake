@@ -1,0 +1,21 @@
+/*SignContainer*/
+.HomeMain {
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+}
+
+/*Logo in SignContainer*/
+.HomeMain img {
+    display: flex;
+    width: 128px;
+    height: 128px;
+}

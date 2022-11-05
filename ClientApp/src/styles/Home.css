@@ -1,20 +1,3 @@
-/*SignContainer*/
-.HomeMain{
-    font-size: 40px;
-    color: white;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/*Logo in SignContainer*/
-.HomeMain img {
-    display: flex;
-    width: 128px;
-    height: 128px;
-}
-
 /*Containers in MainContainer*/
 main div div{
     padding: 30px;

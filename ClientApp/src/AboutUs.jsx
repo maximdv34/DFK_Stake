@@ -1,16 +1,12 @@
 import React from "react";
 /*import { Link } from "react-router-dom";*/
 import './styles/AboutUs.css';
+import MainSign from "./MainSign.jsx";
 
 export default function AboutUs() {
     return (
         <>
-        <div>
-            <div className="HomeMain">
-                DFK Stake
-                <img src='./static/images/logo.png' />
-            </div>
-        </div>
+        <MainSign/>
         <div className="AboutUs">
             <div>
                 <div>
