@@ -23,7 +23,7 @@ function Header_Top() {
         <>
           <header>
               <div>
-                  <Link to={'/'}><div className="MainName">DFK Stake</div></Link>
+                  <Link to={'/'} className="ImageContainer"><div className="MainName">DFK Stake</div></Link>
                   <Link to={'/'}><img src='./static/images/logo.png' /></Link>
               </div>
               <div className="Navigation">

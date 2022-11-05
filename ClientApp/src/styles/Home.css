@@ -28,6 +28,11 @@ main div div{
 main{
     font-family:Arial;
     font-stretch:narrower;
+    font-size: 20px;
+}
+
+h1{
+    font-size: 36px;
 }
 
 /*ButtonsContainer*/
@@ -45,6 +50,7 @@ main{
     border-radius: 10px;
     margin-left: 40px;
     padding: 5px 35px 5px 35px;
+    font-size: 20px;
 }
 
 
