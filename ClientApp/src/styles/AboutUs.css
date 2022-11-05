@@ -7,7 +7,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    margin: 80px;
+    margin: 20px;
 }
 
 /*Row*/
@@ -21,7 +21,6 @@
 /*Cell*/
 .AboutUs div div{
     width: 50%;
-    min-width: 650px;
 
     justify-content: center;
     align-content: center;
@@ -35,7 +34,7 @@
         border-radius: 36px;
         background-color: rgba(255, 255, 255, 0.16);
         height: min-content;
-        width: 65%;
+        width: 75%;
         color: white;
         box-shadow: 60px 72px 64px rgba(0, 0, 0, 0.25);
         letter-spacing: 1px;
