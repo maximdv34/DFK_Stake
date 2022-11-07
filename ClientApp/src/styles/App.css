@@ -1,6 +1,6 @@
 /*Main header container*/
 header{
-    height: 40px;
+    height: 50px;
     display: flex;
     align-items: center;
     margin-bottom: 15px;
@@ -17,6 +17,7 @@ header div{
 
 /*Links inside containers*/
 header div a {
+    font-size: 20px;
     margin-left: 20px;
     text-decoration: none;
     color: darkgray;
@@ -38,7 +39,8 @@ header div a img{
 /*Website name*/
 .MainName{
     color:white;
-    font-size: 20px;
+    font-size: 35px;
+    width: fit-content;
 }
 
 /*ConnectWallet button container*/

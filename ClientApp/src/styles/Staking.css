@@ -1,0 +1,288 @@
+.StakingBar {
+    display: flex;
+    flex-direction: row;
+
+    color: white;
+    font-family: 'Jomolhari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.OrderBy{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.OrderBy input {
+    display: inline-flex;
+}
+
+.OrderBy img {
+    margin: 5px;
+    display: inline-flex;
+    height: 25px;
+    width: 46px;
+}
+
+.SortBy{
+    width: 50%;
+    display: flex;
+}
+
+.SortBy div{
+    display: flex;
+    flex-direction: column;
+}
+
+.SortBy div div {
+    display: flex;
+
+    padding-left: 10px;
+}
+
+.SortBy div select {
+    display: flex;
+    width: 170px;
+    height: 25px;
+    color: white;
+    font-family: 'Jomolhari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    background: rgba(217, 217, 217, 0.32);
+    border-radius: 10px;
+}
+
+.SortBy div select option {
+    background: #132745;
+    text-align: center;    
+}
+
+.SearchBox{
+    width: 10%;
+    display: flex;
+}
+
+.SearchBox div {
+   display: flex;
+   flex-direction: column;
+
+   font-family: 'Jomolhari';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 15px;
+   line-height: 24px;
+}
+
+.SearchBox div div {
+        display: flex;
+        padding-left: 10px;
+    }
+
+.SearchBox div input {
+        display: flex;
+        background: rgba(217, 217, 217, 0.32);
+        border-radius: 10px;
+        border-color: transparent;
+        height: 25px;
+        color: white;
+        font-family: 'Jomolhari';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+.Cursor{
+    cursor:pointer;
+}
+
+/*List*/
+.StakesContainerList {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    font-family: 'Jomolhari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.ListNode {
+    width: 80vw;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: rgba(217, 217, 217, 0.2);
+    border-radius: 40px;
+}
+
+.ImageCont1 {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 8%;
+}
+
+.ImageCont2 {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-items: center;
+    width: 6%;
+}
+
+.Image {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    border-radius: 80%;
+    background-color: #D9D9D9;
+}
+
+.ArrowImage {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+}
+
+.MainName {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.MainName div{
+    text-align: center;
+}
+
+.Text {
+    width: 18.5%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.Text div{
+    display: flex;
+    text-align: center;
+}
+
+/*Grid*/
+
+.Grid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.StakesContainerGrid {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    align-items: center;
+    font-family: 'Jomolhari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.GridNode {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background: rgba(217, 217, 217, 0.34);
+    border-radius: 28px;
+    margin: 20px;
+}
+
+.GridNodeHeader {
+    display: flex;
+    flex-direction: row;
+    background: rgba(217, 217, 217, 0.4);
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.GridHeaderText {
+    font-family: 'Jomolhari';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    flex-direction: row;
+    display: flex;
+    width: 50%;
+    justify-content: left;
+    align-items: center;
+}
+
+.GridHeaderImage{
+    flex-direction: row-reverse;
+    display: flex;
+    width: 50%;
+}
+
+.GridHeaderImage img{
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border-radius: 40px;
+}
+
+.GridNodeText {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.GridNodeText div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.GridNodeButton{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.GridNodeButton button {
+    border-radius: 15px;
+    border-color: transparent;
+    color: white;
+    background-color: rgba(170, 170, 170, 0.2);
+    height: 100%;
+    margin-right: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.GridNodeButton button:hover {
+     background-color: rgba(200,200,200, 0.5);
+    transition-property: background-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+}
