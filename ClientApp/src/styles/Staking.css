@@ -114,11 +114,17 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 24px;
+    margin-top: 20px;
+    gap:20px;
+}
+
+.ListNodeWrapper{
+    display: flex;
+
 }
 
 .ListNode {
     width: 80vw;
-    margin: 20px;
     padding: 20px;
     display: flex;
     flex-direction: row;
@@ -154,6 +160,7 @@
     width: 32px;
     height: 32px;
     background-color: transparent;
+    transform-origin: 50% 50%;
 }
 
 .MainName {
@@ -180,13 +187,42 @@
     text-align: center;
 }
 
-/*Grid*/
-
-.Grid{
+.ListNodeExpanded {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background: rgba(217, 217, 217, 0.24);
+    border-radius: 37px;
 }
+
+.ListNodeButtonContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.ListNodeButtonContainer button {  
+    font-size: 25px;
+    border-radius: 15px;
+    border-color: transparent;
+    color: white;
+    background-color: rgba(170, 170, 170, 0.2);
+    margin: 10px 30px 10px 30px;
+    padding: 20px 35px 20px 35px;
+}
+
+.ListNodeButtonContainer button:hover {
+    background-color: rgba(200,200,200, 0.5);
+    transition-property: background-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+}
+
+/*Grid*/
+.Grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 .StakesContainerGrid {
     width: 80%;
