@@ -231,11 +231,12 @@
     }
 
 .StakesContainerGrid {
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     color: white;
+
     align-items: center;
     font-family: 'Jomolhari';
     font-style: normal;
@@ -247,7 +248,7 @@
 .GridNode {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 28%;
     background: rgba(217, 217, 217, 0.34);
     border-radius: 28px;
     margin: 20px;
