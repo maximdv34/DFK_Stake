@@ -18,8 +18,8 @@ export default function Home() {
                          <h1>Earn passive income with crypto.</h1>
                          <p>DFK State makes it easy to make your crypto work for you.</p>
                          <div className="ButtonsContainer">
-                             <button>Explore</button>
-                             <button>Learn</button>
+                            <Link to={'AboutUs'}><button>Explore</button></Link>
+                            <Link to={'AboutUs'}><button>Learn</button></Link>
                          </div>
                      </div>
                  </div>
