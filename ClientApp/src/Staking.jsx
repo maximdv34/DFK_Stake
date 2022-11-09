@@ -2,6 +2,8 @@ import React, { useState } from "react";
 /*import { Link } from "react-router-dom";*/
 import "./styles/Staking.css";
 
+import { showConnectWalletDialog } from './App.jsx';
+
 //Select lambda for sorting
 function sortSelector(order) {
     switch (order) {
@@ -32,7 +34,14 @@ function sortSelector(order) {
                 else
                     return 1;
             };
-        default: return () => 1;
+        default: return (item1, item2) => {
+            if (item1.total > item2.total)
+                return -1;
+            else if (item1.total === item2.total)
+                return 0;
+            else
+                return 1;
+        };
     }
 }
 
@@ -95,7 +104,7 @@ export default function Staking() {
     if (alignGrid) {
         return (
             <>
-                <div>
+                <div className="StakingContainer">
                     <div className="StakingBar">
                         <div className="OrderBy" >
                             <img src={buttons.listInactive} onClick={ChangeAlignList} className="Cursor" alt="-List" />
@@ -199,7 +208,7 @@ export function StakingGrid(props) {
                                 <div>{item.total }</div>
                             </div>
                             <div className="GridNodeButton">
-                                <button>Connect Wallet</button>
+                                <button onClick={showConnectWalletDialog }>Connect Wallet</button>
                             </div>
                         </div>
                 );
@@ -307,7 +316,7 @@ export function StakeNodeList(props) {
                 </div>
 
                 <div className="ListNodeButtonContainer">
-                    <button>Connect Wallet</button>
+                    <button onClick={showConnectWalletDialog}>Connect Wallet</button>
                 </div>
             </div>
         );

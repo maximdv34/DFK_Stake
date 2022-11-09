@@ -5,9 +5,9 @@ import MainSign from "./MainSign.jsx";
 
 export default function Home() {
      return(
-    <>
-             <main>
-                 <MainSign/>
+         <>
+             <MainSign />
+             <main>    
                  <div>
                     <div>
                          <h1>Used by millions. Trusted with billions.</h1>

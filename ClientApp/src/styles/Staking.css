@@ -1,3 +1,7 @@
+.StakingContainer{
+    width: 100vw;
+}
+
 .StakingBar {
     display: flex;
     flex-direction: row;

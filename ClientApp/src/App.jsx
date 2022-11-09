@@ -24,7 +24,7 @@ function App() {
 let toggle = true;
 let _Y = 0;
 
-function showConnectWalletDialog() {
+export function showConnectWalletDialog() {
     const walletDialog = document.getElementById("wall");
     let Y = window.scrollY;
 

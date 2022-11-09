@@ -90,5 +90,5 @@ body {
     background-image: url("../../public/static/images/Background.png");
     background-size: cover;
 
-   
+    overflow-x: hidden;
 }
