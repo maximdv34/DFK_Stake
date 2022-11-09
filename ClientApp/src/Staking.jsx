@@ -62,12 +62,12 @@ export default function Staking() {
         setItems(
             {
                 items: [
-                    { name: "BTC", locked: 25.5, flexible: 31.2, time: 6.5, total: 1234567, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "ETH", locked: 10.2, flexible: 19.8, time: 1.2, total: 7654321, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "BTC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "BTC", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "ETH", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "BTC", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoPlaceholder.png" }
+                    { name: "BTC", locked: 25.5, flexible: 31.2, time: 6.5, total: 1234567, image: "./static/images/Bitcoin.png" },
+                    { name: "ETH", locked: 10.2, flexible: 19.8, time: 1.2, total: 7654321, image: "./static/images/Ethereum.svg" },
+                    { name: "MATIC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoPlaceholder.png" },
+                    { name: "MANA", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoPlaceholder.png" },
+                    { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoPlaceholder.png" },
+                    { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoPlaceholder.png" }
             ],
             areset: true});
     };
@@ -184,15 +184,15 @@ export function StakingGrid(props) {
                             </div>
                             <div className="GridNodeText">
                                 <div>Locked APY</div>
-                                <div>{item.locked }</div>
+                                <div>{item.locked }%</div>
                             </div>
                             <div className="GridNodeText">
                                 <div>Flexible APY</div>
-                                <div>{item.flexible }</div>
+                                <div>{item.flexible }%</div>
                             </div>
                             <div className="GridNodeText">
                                 <div>Reward payout every</div>
-                                <div>{item.time }</div>
+                                <div>{item.time }h</div>
                             </div>
                             <div className="GridNodeText">
                                 <div>Total staked</div>
@@ -250,7 +250,7 @@ export function StakeNodeList(props) {
                 <div className="ImageCont1">
                     <img className="Image" alt="CryptoImage" src={props.item.image} />
                 </div>
-                <div className="MainName">
+                <div className="CryptoName">
                     <div>{props.item.name}</div>
                 </div>
                 <div className="Text">
@@ -282,7 +282,7 @@ export function StakeNodeList(props) {
                 <div className="ImageCont1">
                     <img className="Image" alt="CryptoImage" src={props.item.image} />
                 </div>
-                <div className="MainName">
+                <div className="CryptoName">
                     <div>{props.item.name}</div>
                 </div>
                 <div className="Text">
@@ -302,7 +302,7 @@ export function StakeNodeList(props) {
                     <div>{props.item.total}</div>
                 </div>
                 <div className="ImageCont2">
-                    <img className="ArrowImage" alt="Arrow" src="./static/images/Arrow.png" className="Cursor" onClick={changeExpanded} />
+                    <img className="ArrowImage Cursor" alt="Arrow" src="./static/images/Arrow.png" onClick={changeExpanded} />
                 </div>
                 </div>
 
