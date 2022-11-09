@@ -1,0 +1,101 @@
+.WalletDialog {
+    display: none;
+    position: absolute;
+    background-color: rgba(50, 50, 50, 0.7);
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.WalletDialogOpen {
+    display: flex;
+}
+
+.MainDialog {
+    color: white;
+    display: flex;
+    width: 600px;
+    background: rgba(41, 64, 77, 0.91);
+    border-radius: 47px;
+    padding: 25px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Close {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+    .Close img {
+        display: flex;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+    }
+
+.MainDialogText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .MainDialogText div {
+        display: flex;
+        text-align: center;
+    }
+
+.MainDialogMainSign {
+    font-size: 40px;
+}
+
+.Options {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainDialogOptions {
+    margin-top: 15px;
+}
+
+.MainDialogOptionsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.MainDialogOptionContainer {
+    height: 128px;
+    width: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.OptionImage {
+    display: flex;
+}
+
+    .OptionImage img {
+        height: 64px;
+        width: 64px;
+        cursor: pointer;
+    }
+
+        .OptionImage img:hover {
+            height: 100px;
+            width: 100px;
+            transition-property: height width;
+            transition-duration: 150ms;
+            transition-timing-function: ease-out;
+        }
+
+.OptionText {
+    font-size: 16px;
+    display: flex;
+    text-align: center;
+}
