@@ -67,7 +67,7 @@ export default function Staking() {
 
 
     //Start loading items
-    const loadItems = () => {
+    const loadItems = async () => {
         setItems(
             {
                 items: [
@@ -78,7 +78,13 @@ export default function Staking() {
                     { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoPlaceholder.png" },
                     { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoPlaceholder.png" }
             ],
-            areset: true});
+                areset: true
+            });
+
+        //const request = await fetch("api/stakes");
+        //const items = await request.json();
+        //setItems({ items: items, areset: true });
+
     };
 
     //Prevent from endless updating of items
