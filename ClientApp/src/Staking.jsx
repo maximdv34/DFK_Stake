@@ -68,23 +68,37 @@ export default function Staking() {
 
     //Start loading items
     const loadItems = async () => {
-        setItems(
-            {
-                items: [
-                    { name: "BTC", locked: 25.5, flexible: 31.2, time: 6.5, total: 1234567, image: "./static/images/Bitcoin.png" },
-                    { name: "ETH", locked: 10.2, flexible: 19.8, time: 1.2, total: 7654321, image: "./static/images/Ethereum.svg" },
-                    { name: "MATIC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "MANA", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoPlaceholder.png" }
-            ],
-                areset: true
-            });
+        //setItems(
+        //    {
+        //        items: [
+        //            { name: "BTC", locked: 25.5, flexible: 31.2, time: 6.5, total: 1234567, image: "./static/images/Bitcoin.png" },
+        //            { name: "ETH", locked: 10.2, flexible: 19.8, time: 1.2, total: 7654321, image: "./static/images/Ethereum.svg" },
+        //            { name: "MATIC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoPlaceholder.png" },
+        //            { name: "MANA", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoPlaceholder.png" },
+        //            { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoPlaceholder.png" },
+        //            { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoPlaceholder.png" }
+        //    ],
+        //        areset: true
+        //    });
 
-        //const request = await fetch("api/stakes");
-        //const items = await request.json();
-        //setItems({ items: items, areset: true });
+        const request = await fetch("api/stakes");
+        let items = await request.json();
 
+        items.forEach(item => {
+            console.log(item);
+            const data = item.image;
+            const byteCharacters = atob(data);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: "image/*" });
+            item.image = URL.createObjectURL(blob);
+            console.log(item.image);
+        });
+
+        setItems({ items: items, areset: true });
     };
 
     //Prevent from endless updating of items

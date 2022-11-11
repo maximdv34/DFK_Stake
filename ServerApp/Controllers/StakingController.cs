@@ -8,9 +8,14 @@ namespace ServerApp.Controllers
     {
         [Route("stakes")]
         [HttpGet]
-        public IActionResult LoadStakes()
+        public async Task<IActionResult> LoadStakes()
         {
-            return Json(StakeModel.StaticStakes);
+            await Task.Delay(50);
+            var stakes = StakeModel.LoadStakesFromDb();
+            if (stakes != null)
+                return Json(stakes);
+            else
+                return NotFound();
         }
     }
 }
