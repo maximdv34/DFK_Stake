@@ -253,8 +253,7 @@ export function StakeNodeList(props) {
     const [expanded, setExpanded] = useState(false);
 
     //Change expanded
-    const changeExpanded = (e) => {
-        e.target.style.transition = "rotate(" + expanded * 180 + "deg);";
+    const changeExpanded = (event) => {
         setExpanded(!expanded);
     }
 
@@ -317,8 +316,14 @@ export function StakeNodeList(props) {
                     <div>{props.item.total}</div>
                 </div>
                 <div className="ImageCont2">
-                    <img className="ArrowImage Cursor" alt="Arrow" src="./static/images/Arrow.png" onClick={changeExpanded} />
+                    <img className="ArrowImage ArrowImageFlip Cursor" alt="Arrow" src="./static/images/Arrow.png" onClick={changeExpanded} />
                 </div>
+                </div>
+
+                <div className="ListNodeExpandedCollectContainer">
+                    <div className="ListNodeExpandedCollectSign">{props.item.name} earned</div>
+                    <div className="ListNodeExpandedCollectSign">0.000000</div>
+                    <button className="ListNodeExpandedCollectButton">Collect</button>
                 </div>
 
                 <div className="ListNodeButtonContainer">

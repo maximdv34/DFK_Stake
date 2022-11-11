@@ -1,51 +1,97 @@
-/*Containers in MainContainer*/
-main div div{
-    padding: 30px;
-    margin: 50px;
-    background-color: rgba(130, 130, 130, 0.4);
-    border-radius: 40px;
-    color: white;
-}
-
-/*MainContainer*/
-main{
+.HomeMainContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100vw;
 
-    font-family:Arial;
-    font-stretch:narrower;
-    font-size: 20px;
+    gap: 70px;
+    margin-bottom: 20px;
 }
 
-h1{
-    font-size: 36px;
-}
-
-/*ButtonsContainer*/
-.ButtonsContainer{
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-}
-
-/*ButtonsContainer buttons*/
-.ButtonsContainer button{
-    background-color: transparent;
+.HomeContainer {
+    width: 90%;
     color: white;
-    border-color: transparent;
-    border-radius: 10px;
-    margin-left: 40px;
-    padding: 5px 35px 5px 35px;
-    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+
+    background: rgba(217, 217, 217, 0.2);
+    border-radius: 60px;
 }
 
+.HomeContainerWidthDisabled{
+    width: 100%;
+}
 
-/*ButtonsContainer buttons hover*/
-.ButtonsContainer button:hover{
-    background-color: rgba(200, 200, 200, 0.5);
+.ExpandedHomeContainer {
+    width: 90%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(217, 217, 217, 0.21);
+    border-radius: 57px;
+}
+
+.HomeContainerSignContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 40px 50px;
+}
+
+.HomeContainerMainSign {
+    display: flex;
+    margin-bottom: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+
+    margin: 50px 0px 34px 50px;
+}
+
+.HomeContainerSmallSign {
+    display: flex;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.HomeContainerButtonsContainer{
+    margin: 0px 0px 32px 5%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+
+    gap: 10px;
+}
+
+.HomeContainerButtonsButtonContainer {
+    display: flex;
+}
+
+.HomeContainerButtonsButton {
+    color: white;
+    padding: 7px 40px 7px 40px;
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    border-radius: 15px;
+}
+
+.HomeContainerButtonsButton:hover {
+    background-color: rgba(217, 217, 217, 0.7);
 
     transition-property: background-color;
-    transition-duration: 100ms;
-    transition-timing-function: ease-out;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in;
 }
