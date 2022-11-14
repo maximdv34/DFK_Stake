@@ -30,12 +30,12 @@
     flex-direction: row-reverse;
 }
 
-    .Close img {
-        display: flex;
-        height: 20px;
-        width: 20px;
-        cursor: pointer;
-    }
+.Close img {
+    display: flex;
+    height: 20px;
+     width: 20px;
+    cursor: pointer;
+}
 
 .MainDialogText {
     display: flex;

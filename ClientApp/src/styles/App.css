@@ -4,23 +4,30 @@ header{
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    
-
     background-color: rgba(50, 50, 50, 0.4);
+    flex-direction: row;
 }
 
 /*Header containers*/
 header div{
     display: flex;
+    flex-direction: row;
     align-items:center;
 }
 
 /*Links inside containers*/
 header div a {
+    display: flex;
     font-size: 20px;
     margin-left: 20px;
     text-decoration: none;
     color: darkgray;
+}
+
+/*WebsiteMainName*/
+.SiteMainName{
+    font-size: 35px;
+    color: white;
 }
 
 /*Logo*/
@@ -33,18 +40,12 @@ header div a img{
 /*Navigation buttons container*/
 .Navigation {
     flex-grow: 1;
-    margin-left: 10%;
-}
-
-/*Website name*/
-.MainName{
-    color:white;
-    font-size: 35px;
-    width: fit-content;
+    margin-left: 30px;
 }
 
 /*ConnectWallet button container*/
 .ConnectWalletButton{
+    display: flex;
     height: 66%;
 }
 
@@ -61,15 +62,27 @@ header div a img{
     padding-right: 35px;
 }
 
-/*ConnectWallet button click*/
-.ConnectWalletButton button:hover{
-    background-color: rgba(200,200,200, 0.5);
+.MobileButtons{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
 
+.MobileButtons img{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+/*ConnectWallet button click*/
+.ConnectWalletButton button:hover {
+    background-color: rgba(200,200,200, 0.5);
     transition-property: background-color;
     transition-duration: 100ms;
     transition-timing-function: ease-out;
 }
-
 
 /*Links inside containers hover*/
 header div a:hover {
@@ -91,4 +104,29 @@ body {
     background-size: cover;
 
     overflow-x: hidden;
+}
+
+
+
+/*Mobile Version*/
+@media only screen and (max-width: 1000px){
+    .Navigation a{
+        display: none;
+    }
+    .ConnectWalletButton{
+        display: none;
+    }
+    .SiteMainName{
+        font-size: 24px;
+    }
+    .MobileButtons{
+        display: flex;
+    }
+    .HomeMain{
+        font-size: 28px;
+    }
+    .HomeMain img{
+        width: 80px;
+        height: 80px;
+    }
 }

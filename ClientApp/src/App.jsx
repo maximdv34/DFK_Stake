@@ -5,7 +5,9 @@ import Staking from './Staking';
 import AboutUs from './AboutUs';
 import './styles/App.css';
 
+import MainSign from './MainSign.jsx';
 import './styles/WalletDialog.css';
+import './styles/MobileMenu.css';
 
 function App() {
   return(
@@ -38,6 +40,25 @@ export function showConnectWalletDialog() {
         Y = _Y;
     }
     walletDialog.classList.toggle("WalletDialogOpen");
+    toggle = !toggle;
+
+    window.scrollTo(0, Y);
+}
+
+export function showMobileMenu() {
+    const mobileMenu = document.getElementById("mobilemenu");
+    let Y = window.scrollY;
+
+    if (toggle) {
+        _Y = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${window.scrollY}px`;
+    }
+    else {
+        document.body.style.position = 'initial';
+        Y = _Y;
+    }
+    mobileMenu.classList.toggle("MobileMenuOpen");
     toggle = !toggle;
 
     window.scrollTo(0, Y);
@@ -104,13 +125,31 @@ function WalletDialog() {
         );
 }
 
+function MobileMenu() {
+    return (
+        <div className="MobileMenuBackground" id="mobilemenu">
+            <div className="MobileMenu">
+                <MainSign/>
+                <div className="MobileMenuWalletInfo">
+                    <button className="MobileMenuButton" onClick={showMobileMenu}>ConnectWallet</button>
+                </div>
+                <Link to={'/'}><button className="MobileMenuButton" onClick={showMobileMenu}>Home</button></Link>
+                <Link to={'Staking'}><button className="MobileMenuButton" onClick={showMobileMenu}>Staking</button></Link>
+                <Link to={'AboutUs'}><button className="MobileMenuButton" onClick={showMobileMenu}>About Us</button></Link>
+            </div>
+            <div className="MobileMenuPlaceHolder" onClick={showMobileMenu}></div>
+        </div>
+        );
+}
+
 function Header_Top() {
   return(
       <>
-          <WalletDialog/>
+          <WalletDialog />
+          <MobileMenu/>
           <header>
-              <div>
-                  <Link to={'/'} className="ImageContainer"><div className="MainName">DFK Stake</div></Link>
+              <div className="SiteMainHeadercontainer">
+                  <Link to={'/'} className="SiteMainName">DFK Stake</Link>
                   <Link to={'/'}><img src='./static/images/logo.png' /></Link>
               </div>
               <div className="Navigation">
@@ -119,6 +158,10 @@ function Header_Top() {
               </div>
               <div className="ConnectWalletButton">
                   <button onClick={showConnectWalletDialog}>Connect Wallet</button>       
+              </div>
+              <div className="MobileButtons">
+                  <img src="./static/images/Mobile/LanguageButton.png"/>
+                  <img src="./static/images/Mobile/MobileMenuButton.png" onClick={showMobileMenu} />
               </div>
             </header>
         </>
