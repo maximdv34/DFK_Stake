@@ -138,13 +138,6 @@ body {
     .MobileButtons{
         display: flex;
     }
-    /*.HomeMain{
-        font-size: 28px;
-    }
-    .HomeMain img{
-        width: 80px;
-        height: 80px;
-    }*/
 }
 
 @media only screen and (max-width: 360px){
