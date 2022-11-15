@@ -5,7 +5,7 @@ import Staking from './Staking';
 import AboutUs from './AboutUs';
 import './styles/App.css';
 
-import MainSign from './MainSign.jsx';
+//import MainSign from './MainSign.jsx';
 import './styles/WalletDialog.css';
 import './styles/MobileMenu.css';
 
@@ -129,7 +129,10 @@ function MobileMenu() {
     return (
         <div className="MobileMenuBackground" id="mobilemenu">
             <div className="MobileMenu">
-                <MainSign/>
+                <div className="MobileHomeMain">
+                    DFK Stake
+                    <img src='./static/images/logo.png' />
+                </div> 
                 <div className="MobileMenuWalletInfo">
                     <button className="MobileMenuButton" onClick={showMobileMenu}>ConnectWallet</button>
                 </div>

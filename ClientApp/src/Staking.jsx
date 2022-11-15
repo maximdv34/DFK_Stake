@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./styles/Staking.css";
 
 import { showConnectWalletDialog } from './App.jsx';
+import { showMobileMenu } from './App.jsx';
 
 //Select lambda for sorting
 function sortSelector(order) {
@@ -206,6 +207,7 @@ export function StakingGrid(props) {
                 })
                 .map((item) => {
                     return (
+                        <>
                         <div className="GridNode" key={++id }>
                             <div className="GridNodeHeader">
                                 <div className="GridHeaderText">{item.name}</div>
@@ -230,7 +232,33 @@ export function StakingGrid(props) {
                             <div className="GridNodeButton">
                                 <button onClick={showConnectWalletDialog }>Connect Wallet</button>
                             </div>
-                        </div>
+                            </div>
+                            <div className="GridNodeMobile">
+                                <div className="GridNodeMobileMainContainer">
+                                    <div>{item.name}</div>
+                                    <div className="GridNodeMobilePhotoContainer"><img src={item.image} /></div>   
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Locked APY</div>
+                                    <div className="GridNodeMobileRightColumn">{item.locked}%</div>
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Flexible APY</div>
+                                    <div className="GridNodeMobileRightColumn">{item.flexible}%</div>
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Reward payout every</div>
+                                    <div className="GridNodeMobileRightColumn">{item.time}h</div>
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Total staked</div>
+                                    <div className="GridNodeMobileRightColumn">{item.total}</div>
+                                </div>
+                                <div className="GridNodeMobileButtonContainer">
+                                    <button onClick={showMobileMenu}>Connect Wallet</button>
+                                </div>
+                            </div>
+                            </>
                 );
             })}
             

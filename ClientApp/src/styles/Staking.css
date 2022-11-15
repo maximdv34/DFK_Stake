@@ -14,6 +14,8 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 24px;
+
+    width: 100vw;
 }
 
 .OrderBy{
@@ -22,10 +24,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-
-.OrderBy input {
-    display: inline-flex;
 }
 
 .OrderBy img {
@@ -38,6 +36,7 @@
 .SortBy{
     width: 50%;
     display: flex;
+    flex-direction: column;
 }
 
 .SortBy div{
@@ -54,7 +53,7 @@
 .SortBy div select {
     display: flex;
     width: 170px;
-    height: 25px;
+    height: 35px;
     color: white;
     font-family: 'Jomolhari';
     font-style: normal;
@@ -82,7 +81,6 @@
    font-family: 'Jomolhari';
    font-style: normal;
    font-weight: 400;
-   font-size: 15px;
    line-height: 24px;
 }
 
@@ -96,7 +94,7 @@
         background: rgba(217, 217, 217, 0.32);
         border-radius: 10px;
         border-color: transparent;
-        height: 25px;
+        height: 30px;
         color: white;
         font-family: 'Jomolhari';
         font-style: normal;
@@ -369,4 +367,135 @@
     transition-property: background-color;
     transition-duration: 100ms;
     transition-timing-function: ease-out;
+}
+
+
+/*List Mobile*/
+
+
+/*Grid Mobile*/
+.GridNodeMobile {
+    display: none;
+    flex-direction: column;
+    width: 95%;
+    background: rgba(217, 217, 217, 0.34);
+    border-radius: 31px;
+    margin: 20px 0px 20px 0px;
+    padding-bottom: 20px;
+}
+
+.GridNodeMobileMainContainer {
+    display: flex;
+    flex-direction: row;
+    background: rgba(217, 217, 217, 0.4);
+    border-radius: 31px;
+    padding: 10px 30px 10px 30px;
+    margin-bottom: 10px;
+}
+
+.GridNodeMobileMainContainer div{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    font-size: 24px;
+}
+
+.GridNodeMobileSecondContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 30px 0px 30px;
+    margin: 10px 0px 10px 0px;
+}
+
+.GridNodeMobileSecondContainer div{
+    display: flex;
+}
+
+.GridNodeMobilePhotoContainer{
+    flex-direction: row-reverse;
+}
+
+.GridNodeMobilePhotoContainer img {
+    height: 75px;
+    width: 75px;
+    border-radius: 37.5px;
+}
+
+.GridNodeMobileButtonContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.GridNodeMobileRightColumn{
+    width: 30%;
+}
+
+.GridNodeMobileLeftColumn{
+    width: 70%;
+}
+
+.GridNodeMobileButtonContainer button {
+    display: flex;
+    border-radius: 12px;
+    background: rgba(217, 217, 217, 0.47);
+    border-color: transparent;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    font-family: 'Jomolrahi';
+}
+
+@media only screen and (max-width: 1000px) {
+    .GridNode{
+        display: none;
+    }
+    .GridNodeMobile{
+        display: flex;
+    }
+    .StakingBar{
+        gap: 10px;
+    }
+    .OrderBy{
+        width: 20%;
+        align-items: self-end;
+    }
+    .OrderBy img{
+        width: 30px;
+    }
+    .SortBy{
+        width: 40%;
+    }
+    .SearchBox{
+        width: 30%;
+    }
+    .SearchBox div input{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .OrderBy {
+        width: 20%;
+        align-items: self-end;
+    }
+    .StakingBar{
+        gap: 20px;
+    }
+    .OrderBy img {
+        width: 30px;
+    }
+    .SortBy {
+        width: 30%;
+    }
+    .SortBy div select {
+        width: 110px;
+    }
+    .SearchBox {
+        width: 30%;
+    }
+    .SearchBox div input {
+        width: 100%;
+    }
 }

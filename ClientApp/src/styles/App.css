@@ -94,19 +94,35 @@ header div a:hover {
 
 
 /*MAIN STYLE*/
+#root {
+    background-image: url("../../public/static/images/Background.png");
+    background-size: cover;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+}
 
 /*Disable body and set background image*/
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    background-image: url("../../public/static/images/Background.png");
-    background-size: cover;
-
     overflow-x: hidden;
 }
 
+.MobileHomeMain{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 28px;
+    color:white;
+}
 
+.MobileHomeMain img{
+    display: flex;
+    width: 80px;
+    height: 70px;
+}
 
 /*Mobile Version*/
 @media only screen and (max-width: 1000px){
@@ -122,11 +138,17 @@ body {
     .MobileButtons{
         display: flex;
     }
-    .HomeMain{
+    /*.HomeMain{
         font-size: 28px;
     }
     .HomeMain img{
         width: 80px;
         height: 80px;
+    }*/
+}
+
+@media only screen and (max-width: 360px){
+    .SiteMainName{
+        font-size: 20px;
     }
 }

@@ -94,3 +94,29 @@
     transition-duration: 150ms;
     transition-timing-function: ease-in;
 }
+
+@media only screen and (max-width: 1000px){
+    .HomeContainerMainSign {
+        font-size: 24px;
+        margin: 30px 30px 0px 30px;
+        line-height: 29px;
+    }
+    .HomeContainerSignContainer {
+        margin: 30px;
+        font-size: 20px;
+        line-height: 20px;
+        color: #C0E8FF;
+    }
+    .HomeContainerButtonsButton{
+        padding: 0px 10px 0px 10px;
+    }
+    .HomeContainerButtonsButtonContainer {
+        padding: 0px 10% 0px 10%;
+    }
+    .HomeContainer{
+        border-radius: 31px;
+    }
+    .ExpandedHomeContainer{
+        border-radius: 31px;
+    }
+}
