@@ -43,6 +43,17 @@ header div a img{
     margin-left: 30px;
 }
 
+.LanguageButton{
+    display: flex;
+    padding: 10px;
+}
+
+.LanguageButton img{
+    /*padding-right: 10px;*/
+    height: 100%;
+    cursor: pointer;
+}
+
 /*ConnectWallet button container*/
 .ConnectWalletButton{
     display: flex;
@@ -62,17 +73,14 @@ header div a img{
     padding-right: 35px;
 }
 
-.MobileButtons{
+.MobileButton{
     display: none;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+    padding: 10px;
 }
 
-.MobileButtons img{
+.MobileButton img{
     display: flex;
-    width: 50px;
-    height: 50px;
+    height: 100%;
     cursor: pointer;
 }
 
@@ -92,6 +100,62 @@ header div a:hover {
     transition-timing-function: ease-out;
 }
 
+/*LanguageMenu*/
+.LanguageMenu {
+    top: 50px;
+    width: 120px;
+    position: absolute;
+    flex-direction: column;
+    right: 7vw;
+    display: none;
+    /*background-color:rgba(255, 255, 255, 0.16);*/
+    /* background-color: #5A718C;*/
+    background-color: #3E4F65;
+    border-color: gray;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.LanguageMenuRow {
+    border-radius: 5px;
+    padding: 5px 0px 5px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.LanguageMenuRow:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transition-property: background-color;
+    transition-duration: 100ms;
+}
+
+.LanguageMenuRow div {
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LanguageMenuFlagContainer{
+    width: 40%;
+}
+
+    .LanguageMenuSignContainer{
+        width: 80%;
+    }
+
+    .LanguageMenuRow div img {
+        width: 30px;
+        height: 20px;
+    }
+
+.DisplayLanguageMenu{
+    display: flex;
+}
 
 /*MAIN STYLE*/
 #root {
@@ -100,7 +164,6 @@ header div a:hover {
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    
 }
 
 /*Disable body and set background image*/
@@ -135,8 +198,32 @@ body {
     .SiteMainName{
         font-size: 24px;
     }
-    .MobileButtons{
+    .MobileButton{
         display: flex;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .LanguageMenu{
+        right: 15vw;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .LanguageMenu {
+        right: 12vw;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .LanguageMenu {
+        right: 10vw;
+    }
+}
+
+@media only screen and (min-width: 1680px) {
+    .LanguageMenu {
+        right: 8vw;
     }
 }
 

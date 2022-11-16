@@ -11,13 +11,15 @@ import './styles/MobileMenu.css';
 
 function App() {
   return(
-    <>
-    <Header_Top/> 
-      <Routes>  
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/Staking" element={<Staking/>} />
-        <Route exact path="/AboutUs" element={<AboutUs/>} />
-      </Routes>
+      <>
+      
+            <Header_Top/> 
+            <Routes>  
+                <Route exact path="/" element={<Home/>} />
+                <Route exact path="/Staking" element={<Staking/>} />
+                <Route exact path="/AboutUs" element={<AboutUs/>} />
+            </Routes>
+      
     </>
     );
 }
@@ -146,10 +148,33 @@ function MobileMenu() {
 }
 
 function Header_Top() {
+    const toggleLanguageMenu = () => {
+        const languageSelect = document.getElementById("language");
+        languageSelect.classList.toggle("DisplayLanguageMenu");
+    };
+
+    const selectLanguage = (e) => {
+        
+        toggleLanguageMenu();
+    };
+
+
   return(
       <>
           <WalletDialog />
-          <MobileMenu/>
+          <MobileMenu />
+
+          <div id="language" className="LanguageMenu">
+              <div className="LanguageMenuRow" onClick={selectLanguage}>
+                  <div className="LanguageMenuFlagContainer"><img src="./static/images/Languages/English.png" /></div>
+                  <div className="LanguageMenuSignContainer">English</div>
+              </div>
+              <div className="LanguageMenuRow" onClick={selectLanguage}>
+                  <div className="LanguageMenuFlagContainer"><img src="./static/images/Languages/Ukraine.png" /></div>
+                  <div className="LanguageMenuSignContainer">Ukrainian</div>
+              </div>
+          </div>
+
           <header>
               <div className="SiteMainHeadercontainer">
                   <Link to={'/'} className="SiteMainName">DFK Stake</Link>
@@ -159,12 +184,14 @@ function Header_Top() {
                   <Link to={'Staking'}><div>Staking</div></Link>
                   <Link to={'AboutUs'}><div>About Us</div></Link>
               </div>
+              <div className="LanguageButton" onClick={toggleLanguageMenu}>
+                  <img src="./static/images/languageButton.png" />
+              </div>
               <div className="ConnectWalletButton">
                   <button onClick={showConnectWalletDialog}>Connect Wallet</button>       
               </div>
-              <div className="MobileButtons">
-                  <img src="./static/images/Mobile/LanguageButton.png"/>
-                  <img src="./static/images/Mobile/MobileMenuButton.png" onClick={showMobileMenu} />
+              <div className="MobileButton">
+                  <img src="./static/images/mobileMenuButton.png" onClick={showMobileMenu} />
               </div>
             </header>
         </>

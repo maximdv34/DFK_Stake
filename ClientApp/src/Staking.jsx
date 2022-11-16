@@ -82,23 +82,24 @@ export default function Staking() {
                 areset: true
             });
 
-        //For Backend
-        /*
-        const request = await fetch("api/stakes");
-        let items = await request.json();
 
-        items.forEach(item => {
-            const data = item.image;
-            const byteCharacters = atob(data);
-            const byteNumbers = new Array(byteCharacters.length);
-            for (let i = 0; i < byteCharacters.length; i++) {
-                byteNumbers[i] = byteCharacters.charCodeAt(i);
-            }
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: "image/*" });
-            item.image = URL.createObjectURL(blob);
-        });
-        */
+        //For Backend
+        
+        //const request = await fetch("api/stakes");
+        //let items = await request.json();
+
+        //items.forEach(item => {
+        //    const data = item.image;
+        //    const byteCharacters = atob(data);
+        //    const byteNumbers = new Array(byteCharacters.length);
+        //    for (let i = 0; i < byteCharacters.length; i++) {
+        //        byteNumbers[i] = byteCharacters.charCodeAt(i);
+        //    }
+        //    const byteArray = new Uint8Array(byteNumbers);
+        //    const blob = new Blob([byteArray], { type: "image/*" });
+        //    item.image = URL.createObjectURL(blob);
+        //});
+        
         //setItems({ items: items, areset: true });
     };
 
