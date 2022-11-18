@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Link} from "react-router-dom";
 import Home from './Home';
 import Staking from './Staking';
@@ -158,8 +158,19 @@ function Header_Top() {
         toggleLanguageMenu();
     };
 
+    const [copiedToClipboard, setCopiedToClipboard] = useState(false);
+    const upwp = "0x0e7dbcEEEde7573D28ec8ec8ce2e3e8366355ce";   //user profile wallet placeholder
+    const upwpd = upwp.slice(0, 7) + "...." + upwp.slice(-4); //user profile wallet for display in profile
+    const balance = 12345;                                      //user wallet balance
 
-  return(
+    //Copy wallet id to clipboard
+    const copyWalletIdToClipboard = async () => {
+        await navigator.clipboard.writeText(upwp);
+        setCopiedToClipboard(true);
+        setTimeout(setCopiedToClipboard, 3000, false);
+    };
+
+    return (
       <>
           <WalletDialog />
           <MobileMenu />
@@ -174,6 +185,39 @@ function Header_Top() {
                   <div className="LanguageMenuSignContainer">Ukrainian</div>
               </div>
           </div>
+
+          {/*<div className="UserProfile">*/}
+            {/*<div className="UserProfileLogo">
+                    <div className="UserProfileLogoName">
+                        DFK Stake
+                    </div>
+                    <div className="UserProfileLogoImage">
+                        <img src="./static/images/logo.png" />
+                    </div>
+                </div>
+                <div className="UserProfileDataContainer">
+                    <img src="./static/images/WalletImage.png" />
+                    <div onClick={copyWalletIdToClipboard }>
+                        {upwpd}
+                    </div>
+                </div>
+
+          {/*      {copiedToClipboard ? (*/}
+          {/*          <div className="UserProfileCopiedToClipboard">*/}
+          {/*              Copied to clipboard*/}
+          {/*          </div>) :*/}
+          {/*          (<></>)*/}
+          {/*      }*/}
+
+          {/*      <div className="UserProfileDataContainer">*/}
+          {/*          <div>*/}
+          {/*              {balance}$*/}
+          {/*          </div>*/}
+          {/*      </div>*/}
+          {/*      <div className="UserProfileDisconnectButton">*/}
+          {/*          <button>Disconnect</button>*/}
+          {/*      </div>*/}
+          {/*</div>*/}
 
           <header>
               <div className="SiteMainHeadercontainer">

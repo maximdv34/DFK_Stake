@@ -229,7 +229,15 @@ export function StakingGrid(props) {
                             <div className="GridNodeText">
                                 <div>Total staked</div>
                                 <div>{item.total }</div>
-                            </div>
+                                </div>
+
+                                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/ }
+                                {/*<div className="ExpandedCollectContainer">*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">{item.name} earned</div>*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
+                                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
+                                {/*</div>*/}
+
                             <div className="GridNodeButton">
                                 <button onClick={showConnectWalletDialog }>Connect Wallet</button>
                             </div>
@@ -255,6 +263,14 @@ export function StakingGrid(props) {
                                     <div className="GridNodeMobileLeftColumn">Total staked</div>
                                     <div className="GridNodeMobileRightColumn">{item.total}</div>
                                 </div>
+
+                                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/}
+                                {/*<div className="ExpandedCollectContainer">*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">{item.name} earned</div>*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
+                                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
+                                {/*</div>*/}
+
                                 <div className="GridNodeMobileButtonContainer">
                                     <button onClick={showMobileMenu}>Connect Wallet</button>
                                 </div>
@@ -363,11 +379,12 @@ export function StakeNodeList(props) {
                 </div>
                 </div>
 
-                <div className="ListNodeExpandedCollectContainer">
-                    <div className="ListNodeExpandedCollectSign">{props.item.name} earned</div>
-                    <div className="ListNodeExpandedCollectSign">0.000000</div>
-                    <button className="ListNodeExpandedCollectButton">Collect</button>
-                </div>
+                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/}
+                {/*<div className="ExpandedCollectContainer">*/}
+                {/*    <div className="ListNodeExpandedCollectSign">{props.item.name} earned</div>*/}
+                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
+                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
+                {/*</div>*/}
 
                 <div className="ListNodeButtonContainer">
                     <button onClick={showConnectWalletDialog}>Connect Wallet</button>

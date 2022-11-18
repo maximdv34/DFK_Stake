@@ -203,7 +203,7 @@
     border-radius: 37px;
 }
 
-.ListNodeExpandedCollectContainer {
+.ExpandedCollectContainer {
     display: flex;
     flex-direction: column;
     padding: 10px 20px 10px 20px;
