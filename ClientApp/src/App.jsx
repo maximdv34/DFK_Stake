@@ -5,15 +5,7 @@ import Staking from './Staking';
 import AboutUs from './AboutUs';
 import './styles/App.css';
 import WalletDialog from './walletDialog';
-//import MainSign from './MainSign.jsx';
-/*
-const forceUpdateReducer = (i) => i + 1
 
-export const useForceUpdate = () => {
-  const [, forceUpdate] = useReducer(forceUpdateReducer, 0)
-  return forceUpdate
-}
-*/
 function App() {
   return(
     <>
