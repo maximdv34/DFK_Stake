@@ -4,23 +4,30 @@ header{
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    
-
     background-color: rgba(50, 50, 50, 0.4);
+    flex-direction: row;
 }
 
 /*Header containers*/
 header div{
     display: flex;
+    flex-direction: row;
     align-items:center;
 }
 
 /*Links inside containers*/
 header div a {
+    display: flex;
     font-size: 20px;
     margin-left: 20px;
     text-decoration: none;
     color: darkgray;
+}
+
+/*WebsiteMainName*/
+.SiteMainName{
+    font-size: 35px;
+    color: white;
 }
 
 /*Logo*/
@@ -33,18 +40,23 @@ header div a img{
 /*Navigation buttons container*/
 .Navigation {
     flex-grow: 1;
-    margin-left: 10%;
+    margin-left: 30px;
 }
 
-/*Website name*/
-.MainName{
-    color:white;
-    font-size: 35px;
-    width: fit-content;
+.LanguageButton{
+    display: flex;
+    padding: 10px;
+}
+
+.LanguageButton img{
+    /*padding-right: 10px;*/
+    height: 100%;
+    cursor: pointer;
 }
 
 /*ConnectWallet button container*/
 .ConnectWalletButton{
+    display: flex;
     height: 66%;
 }
 
@@ -61,15 +73,24 @@ header div a img{
     padding-right: 35px;
 }
 
-/*ConnectWallet button click*/
-.ConnectWalletButton button:hover{
-    background-color: rgba(200,200,200, 0.5);
+.MobileButton{
+    display: none;
+    padding: 10px;
+}
+
+.MobileButton img{
+    display: flex;
+    height: 100%;
     cursor: pointer;
+}
+
+/*ConnectWallet button click*/
+.ConnectWalletButton button:hover {
+    background-color: rgba(200,200,200, 0.5);
     transition-property: background-color;
     transition-duration: 100ms;
     transition-timing-function: ease-out;
 }
-
 
 /*Links inside containers hover*/
 header div a:hover {
@@ -79,16 +100,246 @@ header div a:hover {
     transition-timing-function: ease-out;
 }
 
+/*LanguageMenu*/
+.LanguageMenu {
+    top: 50px;
+    width: 120px;
+    position: absolute;
+    flex-direction: column;
+    right: 7vw;
+    display: none;
+    /*background-color:rgba(255, 255, 255, 0.16);*/
+    /* background-color: #5A718C;*/
+    background-color: #3E4F65;
+    border-color: gray;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.LanguageMenuRow {
+    border-radius: 5px;
+    padding: 5px 0px 5px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.LanguageMenuRow:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transition-property: background-color;
+    transition-duration: 100ms;
+}
+
+.LanguageMenuRow div {
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LanguageMenuFlagContainer{
+    width: 40%;
+}
+
+    .LanguageMenuSignContainer{
+        width: 80%;
+    }
+
+    .LanguageMenuRow div img {
+        width: 30px;
+        height: 20px;
+    }
+
+.DisplayLanguageMenu{
+    display: flex;
+}
 
 /*MAIN STYLE*/
+#root {
+    background-image: url("../../public/static/images/Background.png");
+    background-size: cover;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 /*Disable body and set background image*/
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    background-image: url("../../public/static/images/Background.png");
-    background-size: cover;
-
     overflow-x: hidden;
+}
+
+.MobileHomeMain{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 28px;
+    color:white;
+}
+
+.MobileHomeMain img{
+    display: flex;
+    width: 80px;
+    height: 70px;
+}
+
+/*Mobile Version*/
+@media only screen and (max-width: 1000px){
+    .Navigation a{
+        display: none;
+    }
+    .ConnectWalletButton{
+        display: none;
+    }
+    .SiteMainName{
+        font-size: 24px;
+    }
+    .MobileButton{
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .LanguageMenu{
+        right: 15vw;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .LanguageMenu {
+        right: 12vw;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .LanguageMenu {
+        right: 10vw;
+    }
+}
+
+@media only screen and (min-width: 1680px) {
+    .LanguageMenu {
+        right: 8vw;
+    }
+}
+
+@media only screen and (max-width: 360px){
+    .SiteMainName{
+        font-size: 20px;
+    }
+}
+
+/*User Profile*/
+.UserProfile {
+    color: white;
+    position: absolute;
+    height: 320px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    right: 16px;
+    background-color: #37475E;
+    border-width: 2px;
+    /*border-color: gray;*/
+    /*border-style: solid;*/
+    align-items: center;
+    gap: 12px;
+    border-radius: 0px 0px 38px 38px;
+}
+
+.UserProfileLogo{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    align-items: center;
+}
+
+.UserProfileLogoName {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    width: 70%;
+}
+
+.UserProfileLogoImage{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.UserProfileLogoImage img{
+    height: 55px;
+    width: 55px;
+    display: flex;
+}
+
+.UserProfileDataContainer {
+    display: flex;
+    flex-direction: row;
+    background: rgba(172, 178, 210, 0.12);
+    border-radius: 66px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    width: 70%;
+    padding: 8px 10px 8px 10px;
+    gap: 5px;
+    text-align: center;
+}
+
+.UserProfileDataContainer img{
+    display: flex;
+    height: 28px;
+    width: 28px;
+}
+
+.UserProfileDataContainer div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.UserProfileDisconnectButton{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 60%;
+    flex-grow: 0.8;
+}
+
+.UserProfileDisconnectButton button {
+    height: 33%;
+    background: #46546C;
+    border-radius: 32px;
+    border-color: transparent;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.UserProfileDisconnectButton button:hover {
+    background-color: rgba(200,200,200, 0.5);
+    transition-property: background-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+}
+
+.UserProfileCopiedToClipboard{
+    display:flex;
+    color: lime;
+    font-size: 12px;
 }

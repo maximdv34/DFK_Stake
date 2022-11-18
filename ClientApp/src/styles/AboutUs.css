@@ -7,7 +7,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    margin: 20px;
+    padding-bottom: 50px;
 }
 
 /*Row*/
@@ -44,4 +44,34 @@
 .AboutUs div div img {
     border-radius: 25px;
     box-shadow: 60px 72px 64px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (max-width: 1000px) {
+    .AboutUs{
+        align-items: stretch;
+    }
+    .AboutUs div{
+        flex-direction: column;
+        align-items: center;
+        margin: 16px 0px 0px 0px;
+    }
+    .AboutUs div div{
+        justify-content: unset;
+        width: 90%;
+    }
+    .AboutUs div div div{
+        padding: 16px;
+    }
+    .AboutUs div div img {
+        width: 85%;
+    }
+    .MobileAboutUsColumnReverse{
+        flex-direction: column-reverse !important;
+    }
+    .MobileAlignLeft {
+        flex-direction: row !important;
+    }
+    .MobileAlignRight{
+        flex-direction: row-reverse !important; 
+    }
 }

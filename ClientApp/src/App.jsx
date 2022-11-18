@@ -7,6 +7,7 @@ import Staking from './Staking';
 import AboutUs from './AboutUs';
 import './styles/App.css';
 
+//import MainSign from './MainSign.jsx';
 import './styles/WalletDialog.css';
 /*
 const forceUpdateReducer = (i) => i + 1
@@ -18,13 +19,15 @@ export const useForceUpdate = () => {
 */
 function App() {
   return(
-    <>
-    <Header_Top/> 
-      <Routes>  
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/Staking" element={<Staking/>} />
-        <Route exact path="/AboutUs" element={<AboutUs/>} />
-      </Routes>
+      <>
+      
+            <Header_Top/> 
+            <Routes>  
+                <Route exact path="/" element={<Home/>} />
+                <Route exact path="/Staking" element={<Staking/>} />
+                <Route exact path="/AboutUs" element={<AboutUs/>} />
+            </Routes>
+      
     </>
     );
 }
@@ -197,13 +200,16 @@ function Header_Top() {
               <WalletDialog toggling={toggling } checkConnectedWallet={checkConnectedWallet}/>
           ) }  
           <header>
-              <div>
-                  <Link to={'/'} className="ImageContainer"><div className="MainName">DFK Stake</div></Link>
+              <div className="SiteMainHeadercontainer">
+                  <Link to={'/'} className="SiteMainName">DFK Stake</Link>
                   <Link to={'/'}><img src='./static/images/logo.png' /></Link>
               </div>
               <div className="Navigation">
                   <Link to={'Staking'}><div>Staking</div></Link>
                   <Link to={'AboutUs'}><div>About Us</div></Link>
+              </div>
+              <div className="LanguageButton" onClick={toggleLanguageMenu}>
+                  <img src="./static/images/languageButton.png" />
               </div>
               <div className="ConnectWalletButton">
                   <button onClick={toggling}>{user}</button>

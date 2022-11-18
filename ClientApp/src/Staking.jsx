@@ -2,7 +2,7 @@ import React, { useState } from "react";
 /*import { Link } from "react-router-dom";*/
 import "./styles/Staking.css";
 
-/*import { showConnectWalletDialog } from './App.jsx';*/
+import { showMobileMenu } from './App.jsx';
 
 //Select lambda for sorting
 function sortSelector(order) {
@@ -71,33 +71,34 @@ export default function Staking() {
         setItems(
             {
                 items: [
-                    { name: "BTC", locked: 25.5, flexible: 31.2, time: 6.5, total: 1234567, image: "./static/images/Bitcoin.png" },
-                    { name: "ETH", locked: 10.2, flexible: 19.8, time: 1.2, total: 7654321, image: "./static/images/Ethereum.svg" },
-                    { name: "MATIC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "MANA", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoPlaceholder.png" },
-                    { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoPlaceholder.png" }
+                    { name: "BTC", locked: 25.5, flexible: 31.2, time: 6.5, total: 1234567, image: "./static/images/CryptoImages/Bitcoin.png" },
+                    { name: "ETH", locked: 10.2, flexible: 19.8, time: 1.2, total: 7654321, image: "./static/images/CryptoImages/Ethereum.png" },
+                    { name: "MATIC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoImages/CryptoPlaceholder.png" },
+                    { name: "MANA", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoImages/CryptoPlaceholder.png" },
+                    { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoImages/CryptoPlaceholder.png" },
+                    { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoImages/CryptoPlaceholder.png" }
             ],
                 areset: true
             });
+         
 
         //For Backend
-        /*
-        const request = await fetch("api/stakes");
-        let items = await request.json();
+        
+        //const request = await fetch("api/stakes");
+        //let items = await request.json();
 
-        items.forEach(item => {
-            const data = item.image;
-            const byteCharacters = atob(data);
-            const byteNumbers = new Array(byteCharacters.length);
-            for (let i = 0; i < byteCharacters.length; i++) {
-                byteNumbers[i] = byteCharacters.charCodeAt(i);
-            }
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: "image/*" });
-            item.image = URL.createObjectURL(blob);
-        });
-        */
+        //items.forEach(item => {
+        //    const data = item.image;
+        //    const byteCharacters = atob(data);
+        //    const byteNumbers = new Array(byteCharacters.length);
+        //    for (let i = 0; i < byteCharacters.length; i++) {
+        //        byteNumbers[i] = byteCharacters.charCodeAt(i);
+        //    }
+        //    const byteArray = new Uint8Array(byteNumbers);
+        //    const blob = new Blob([byteArray], { type: "image/*" });
+        //    item.image = URL.createObjectURL(blob);
+        //});
+        
         //setItems({ items: items, areset: true });
     };
 
@@ -206,6 +207,7 @@ export function StakingGrid(props) {
                 })
                 .map((item) => {
                     return (
+                        <>
                         <div className="GridNode" key={++id }>
                             <div className="GridNodeHeader">
                                 <div className="GridHeaderText">{item.name}</div>
@@ -226,11 +228,53 @@ export function StakingGrid(props) {
                             <div className="GridNodeText">
                                 <div>Total staked</div>
                                 <div>{item.total }</div>
-                            </div>
+                                </div>
+
+                                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/ }
+                                {/*<div className="ExpandedCollectContainer">*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">{item.name} earned</div>*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
+                                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
+                                {/*</div>*/}
+
                             <div className="GridNodeButton">
                                 <button /*onClick={showConnectWalletDialog }*/>Connect Wallet</button>
                             </div>
-                        </div>
+                            </div>
+                            <div className="GridNodeMobile">
+                                <div className="GridNodeMobileMainContainer">
+                                    <div>{item.name}</div>
+                                    <div className="GridNodeMobilePhotoContainer"><img src={item.image} /></div>   
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Locked APY</div>
+                                    <div className="GridNodeMobileRightColumn">{item.locked}%</div>
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Flexible APY</div>
+                                    <div className="GridNodeMobileRightColumn">{item.flexible}%</div>
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Reward payout every</div>
+                                    <div className="GridNodeMobileRightColumn">{item.time}h</div>
+                                </div>
+                                <div className="GridNodeMobileSecondContainer">
+                                    <div className="GridNodeMobileLeftColumn">Total staked</div>
+                                    <div className="GridNodeMobileRightColumn">{item.total}</div>
+                                </div>
+
+                                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/}
+                                {/*<div className="ExpandedCollectContainer">*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">{item.name} earned</div>*/}
+                                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
+                                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
+                                {/*</div>*/}
+
+                                <div className="GridNodeMobileButtonContainer">
+                                    <button onClick={showMobileMenu}>Connect Wallet</button>
+                                </div>
+                            </div>
+                            </>
                 );
             })}
             
@@ -334,11 +378,12 @@ export function StakeNodeList(props) {
                 </div>
                 </div>
 
-                <div className="ListNodeExpandedCollectContainer">
-                    <div className="ListNodeExpandedCollectSign">{props.item.name} earned</div>
-                    <div className="ListNodeExpandedCollectSign">0.000000</div>
-                    <button className="ListNodeExpandedCollectButton">Collect</button>
-                </div>
+                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/}
+                {/*<div className="ExpandedCollectContainer">*/}
+                {/*    <div className="ListNodeExpandedCollectSign">{props.item.name} earned</div>*/}
+                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
+                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
+                {/*</div>*/}
 
                 <div className="ListNodeButtonContainer">
                     <button /*onClick={showConnectWalletDialog}*/>Connect Wallet</button>
