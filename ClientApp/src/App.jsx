@@ -186,8 +186,8 @@ function Header_Top() {
               </div>
           </div>
 
-          {/*<div className="UserProfile">*/}
-            {/*<div className="UserProfileLogo">
+            {/*<div className="UserProfile">
+            <div className="UserProfileLogo">
                     <div className="UserProfileLogoName">
                         DFK Stake
                     </div>
@@ -196,28 +196,29 @@ function Header_Top() {
                     </div>
                 </div>
                 <div className="UserProfileDataContainer">
-                    <img src="./static/images/WalletImage.png" />
+                    <img src="./static/images/UserImages/WalletImage.png" />
                     <div onClick={copyWalletIdToClipboard }>
                         {upwpd}
                     </div>
                 </div>
 
-          {/*      {copiedToClipboard ? (*/}
-          {/*          <div className="UserProfileCopiedToClipboard">*/}
-          {/*              Copied to clipboard*/}
-          {/*          </div>) :*/}
-          {/*          (<></>)*/}
-          {/*      }*/}
+                {copiedToClipboard ? (
+                    <div className="UserProfileCopiedToClipboard">
+                        Copied to clipboard
+                   </div>) :
+                    (<></>)
+                }
 
-          {/*      <div className="UserProfileDataContainer">*/}
-          {/*          <div>*/}
-          {/*              {balance}$*/}
-          {/*          </div>*/}
-          {/*      </div>*/}
-          {/*      <div className="UserProfileDisconnectButton">*/}
-          {/*          <button>Disconnect</button>*/}
-          {/*      </div>*/}
-          {/*</div>*/}
+                <div className="UserProfileDataContainer">
+                    <img src="./static/images/UserImages/CashImage.png" />
+                    <div>
+                        {balance}$
+                    </div>
+                </div>
+                <div className="UserProfileDisconnectButton">
+                    <button>Disconnect</button>
+                </div>
+          </div>*/}
 
           <header>
               <div className="SiteMainHeadercontainer">
