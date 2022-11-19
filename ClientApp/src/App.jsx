@@ -5,9 +5,9 @@ import Staking from './Staking';
 import AboutUs from './AboutUs';
 import './styles/App.css';
 import WalletDialog from './walletDialog';
-import MobileMenu from './MobileMenu';
-import UserProfile from './UserProfile';
-import LanguageMenu from './LanguageMenu';
+import MobileMenu from './mobileMenu';
+import UserProfile from './userProfile';
+import LanguageMenu from './languageMenu';
 
 function App() {
   return(

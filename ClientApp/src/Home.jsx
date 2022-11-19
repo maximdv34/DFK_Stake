@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Link} from "react-router-dom";
 import './styles/Home.css';
-import MainSign from "./MainSign.jsx";
+import MainSign from "./mainSign.jsx";
 
 export default function Home() {
     const [toggle, setToggle] = useState(false);
