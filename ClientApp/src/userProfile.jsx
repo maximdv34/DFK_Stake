@@ -50,6 +50,7 @@ export default function UserProfile(props) {
             <div className="UserProfileDisconnectButton">
                 <button onClick={() => { props.onDisconnect(); props.disconnect(false); } }>Disconnect</button>
             </div>
+            <button onClick={() => { props.toggle(false); } }>Close</button>
         </div>
         );
 }
