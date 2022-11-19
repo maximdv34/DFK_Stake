@@ -57,9 +57,9 @@ header div a img{
     background-color: rgba(170, 170, 170, 0.2);
     height: 100%;
     margin-right: 20px;
-
     padding-left: 35px;
     padding-right: 35px;
+    cursor: pointer;
 }
 
 .MobileButton{

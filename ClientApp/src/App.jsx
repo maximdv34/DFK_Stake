@@ -43,7 +43,6 @@ function Header_Top() {
             setConnection(true);
         }else{
             setConnection(false);
-            setUser("Connect Wallet");
         }
     }
     useEffect(() => {
@@ -68,7 +67,7 @@ function Header_Top() {
     }; 
 
     //User Profile Menu
-    const [isUserProfileOpen, setIsUserProfileOpen] = useState(true);
+    const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
     
     return(
       <>
@@ -82,7 +81,7 @@ function Header_Top() {
              )}
 
             {isUserProfileOpen && (
-                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} disconnect={setIsUserProfileOpen} toggle={setIsUserProfileOpen} />
+                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} disconnect={setIsUserProfileOpen} />
               )}
 
 
@@ -102,7 +101,12 @@ function Header_Top() {
                   <img src="./static/images/mobileMenuButton.png" onClick={togglingMobile} alt="Menu"/>
               </div>
               <div className="ConnectWalletButton">
-                    <button onClick={toggling}>{(user === "Connect Wallet") ? "Connect Wallet" : user.slice(0, 7) + "...." + user.slice(-4)}</button>      
+              {connection && (
+                    <button onClick={toggling}>{user.slice(0, 7) + "...." + user.slice(-4)}</button>   
+                )}
+                {!connection && (
+                    <button onClick={toggling}>Connect Wallet</button>   
+                )}
               </div>
             </header>
         </>
