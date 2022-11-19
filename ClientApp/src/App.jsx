@@ -67,7 +67,7 @@ function Header_Top() {
     }; 
 
     //User Profile Menu
-    const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
+    const [isUserProfileOpen, setIsUserProfileOpen] = useState(true);
     
     return(
       <>
@@ -81,7 +81,7 @@ function Header_Top() {
              )}
 
             {isUserProfileOpen && (
-                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} disconnect={setIsUserProfileOpen} />
+                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} disconnect={setIsUserProfileOpen} toggle={setIsUserProfileOpen} />
               )}
 
 
