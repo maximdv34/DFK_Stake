@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/WalletDialog.css';
-import { Web3ReactProvider } from '@web3-react/core';
+/*import { Web3ReactProvider } from '@web3-react/core';*/
 import Web3 from 'web3'
 
 async function connectToMetamask(checkConnectedWallet){
@@ -68,7 +68,7 @@ export default function WalletDialog(props) {
       <div className="WalletDialog WalletDialogOpen" id="wall">
           <div className="MainDialog">
               <div className="Close">
-                  <img src="./static/images/ConnectWallet/close.png" onClick={props.toggling} />
+                  <img src="./static/images/ConnectWallet/close.png" onClick={props.toggling} alt="Close"/>
               </div>
               <div className="MainDialogText">
                   <div className="MainDialogMainSign">Connect Wallet</div>
@@ -81,19 +81,19 @@ export default function WalletDialog(props) {
                   <div className="MainDialogOptionsRow">
                       <div className="MainDialogOptionContainer">
                           <div className="OptionImage">
-                              <img src="./static/images/ConnectWallet/Binance.png" onClick={props.toggling} />
+                              <img src="./static/images/ConnectWallet/Binance.png" onClick={props.toggling} alt="Binance"/>
                           </div>
                           <div className="OptionText">Binance</div>
                       </div>
                       <div className="MainDialogOptionContainer">
                           <div className="OptionImage">
-                              <img src="./static/images/ConnectWallet/Metamask.png" onClick={() => {connectToMetamask(props.checkConnectedWallet); props.toggling();}} />
+                              <img src="./static/images/ConnectWallet/Metamask.png" onClick={() => {connectToMetamask(props.checkConnectedWallet); props.toggling();}} alt="Metamask"/>
                           </div>
                           <div className="OptionText">Metamask</div>
                       </div>
                       <div className="MainDialogOptionContainer">
                           <div className="OptionImage">
-                              <img src="./static/images/ConnectWallet/Coinbase.png" onClick={props.toggling} />
+                              <img src="./static/images/ConnectWallet/Coinbase.png" onClick={props.toggling} alt="Coinbase"/>
                           </div>
                           <div className="OptionText">Coinbase Wallet</div>
                       </div>
@@ -101,19 +101,19 @@ export default function WalletDialog(props) {
                   <div className="MainDialogOptionsRow">
                       <div className="MainDialogOptionContainer">
                           <div className="OptionImage">
-                              <img src="./static/images/ConnectWallet/Trust.png" onClick={props.toggling} />
+                              <img src="./static/images/ConnectWallet/Trust.png" onClick={props.toggling} alt="Trust"/>
                           </div>
                           <div className="OptionText">Trust Wallet</div>
                       </div>
                       <div className="MainDialogOptionContainer">
                           <div className="OptionImage">
-                              <img src="./static/images/ConnectWallet/WalletConnect.png" onClick={props.toggling} />
+                              <img src="./static/images/ConnectWallet/WalletConnect.png" onClick={props.toggling} alt="WalletConnect"/>
                           </div>
                           <div className="OptionText">WalletConnect</div>
                       </div>
                       <div className="MainDialogOptionContainer">
                           <div className="OptionImage">
-                              <img src="./static/images/ConnectWallet/Additional.png" onClick={props.toggling} />
+                              <img src="./static/images/ConnectWallet/Additional.png" onClick={props.toggling} alt="Additional"/>
                           </div>
                           <div className="OptionText">Additional</div>
                       </div>

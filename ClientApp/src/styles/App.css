@@ -43,17 +43,6 @@ header div a img{
     margin-left: 30px;
 }
 
-.LanguageButton{
-    display: flex;
-    padding: 10px;
-}
-
-.LanguageButton img{
-    /*padding-right: 10px;*/
-    height: 100%;
-    cursor: pointer;
-}
-
 /*ConnectWallet button container*/
 .ConnectWalletButton{
     display: flex;
@@ -98,63 +87,6 @@ header div a:hover {
     transition-property: color;
     transition-duration: 100ms;
     transition-timing-function: ease-out;
-}
-
-/*LanguageMenu*/
-.LanguageMenu {
-    top: 50px;
-    width: 120px;
-    position: absolute;
-    flex-direction: column;
-    right: 7vw;
-    display: none;
-    /*background-color:rgba(255, 255, 255, 0.16);*/
-    /* background-color: #5A718C;*/
-    background-color: #3E4F65;
-    border-color: gray;
-    border-radius: 20px;
-    padding: 10px;
-    gap: 10px;
-}
-
-.LanguageMenuRow {
-    border-radius: 5px;
-    padding: 5px 0px 5px 0px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-}
-
-.LanguageMenuRow:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    transition-property: background-color;
-    transition-duration: 100ms;
-}
-
-.LanguageMenuRow div {
-    color: white;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.LanguageMenuFlagContainer{
-    width: 40%;
-}
-
-    .LanguageMenuSignContainer{
-        width: 80%;
-    }
-
-    .LanguageMenuRow div img {
-        width: 30px;
-        height: 20px;
-    }
-
-.DisplayLanguageMenu{
-    display: flex;
 }
 
 /*MAIN STYLE*/
@@ -203,143 +135,8 @@ body {
     }
 }
 
-@media only screen and (min-width: 1000px) {
-    .LanguageMenu{
-        right: 15vw;
-    }
-}
-
-@media only screen and (min-width: 1280px) {
-    .LanguageMenu {
-        right: 12vw;
-    }
-}
-
-@media only screen and (min-width: 1440px) {
-    .LanguageMenu {
-        right: 10vw;
-    }
-}
-
-@media only screen and (min-width: 1680px) {
-    .LanguageMenu {
-        right: 8vw;
-    }
-}
-
 @media only screen and (max-width: 360px){
     .SiteMainName{
         font-size: 20px;
     }
-}
-
-/*User Profile*/
-.UserProfile {
-    color: white;
-    position: absolute;
-    height: 320px;
-    width: 270px;
-    display: flex;
-    flex-direction: column;
-    right: 16px;
-    background-color: #37475E;
-    border-width: 2px;
-    /*border-color: gray;*/
-    /*border-style: solid;*/
-    align-items: center;
-    gap: 12px;
-    border-radius: 0px 0px 38px 38px;
-}
-
-.UserProfileLogo{
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    align-items: center;
-}
-
-.UserProfileLogoName {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-    display: flex;
-    width: 70%;
-}
-
-.UserProfileLogoImage{
-    display: flex;
-    width: 30%;
-    flex-direction: column;
-    align-items: center;
-}
-
-.UserProfileLogoImage img{
-    height: 55px;
-    width: 55px;
-    display: flex;
-}
-
-.UserProfileDataContainer {
-    display: flex;
-    flex-direction: row;
-    background: rgba(172, 178, 210, 0.12);
-    border-radius: 66px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    width: 70%;
-    padding: 8px 10px 8px 10px;
-    gap: 5px;
-    text-align: center;
-}
-
-.UserProfileDataContainer img{
-    display: flex;
-    height: 28px;
-    width: 28px;
-}
-
-.UserProfileDataContainer div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-}
-
-.UserProfileDisconnectButton{
-    display: flex;
-    flex-direction: column-reverse;
-    width: 60%;
-    flex-grow: 0.8;
-}
-
-.UserProfileDisconnectButton button {
-    height: 33%;
-    background: #46546C;
-    border-radius: 32px;
-    border-color: transparent;
-    color: white;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-}
-
-.UserProfileDisconnectButton button:hover {
-    background-color: rgba(200,200,200, 0.5);
-    transition-property: background-color;
-    transition-duration: 100ms;
-    transition-timing-function: ease-out;
-}
-
-.UserProfileCopiedToClipboard{
-    display:flex;
-    color: lime;
-    font-size: 12px;
 }

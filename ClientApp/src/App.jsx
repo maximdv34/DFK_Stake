@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useReducer} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Routes, Route, Link} from "react-router-dom";
 import Home from './Home';
 import Staking from './Staking';
 import AboutUs from './AboutUs';
 import './styles/App.css';
 import WalletDialog from './walletDialog';
+import MobileMenu from './MobileMenu';
+import UserProfile from './UserProfile';
+import LanguageMenu from './LanguageMenu';
 
 function App() {
   return(
@@ -29,49 +32,73 @@ export function showDialog(toggle) {
 }
 
 function Header_Top() {
-  const [user, setUser] = useState("Connect Wallet");
-  const [connection, setConnection] = useState(false);
-  function checkConnectedWallet() {
-    const userData = JSON.parse(localStorage.getItem('userAccount'));
-    if (userData != null) {
-      setUser(userData.account);
-      setConnection(true);
-    }else{
-      setConnection(false);
-      setUser("Connect Wallet");
+    const [user, setUser] = useState("Connect Wallet");
+    const [connection, setConnection] = useState(false);
+    function checkConnectedWallet() {
+        const userData = JSON.parse(localStorage.getItem('userAccount'));
+        if (userData != null) {
+            setUser(userData.account);
+            setConnection(true);
+        }else{
+            setConnection(false);
+            setUser("Connect Wallet");
+        }
     }
-  }
-  useEffect(() => {
-    checkConnectedWallet(); 
-  }, []);
+    useEffect(() => {
+        checkConnectedWallet(); 
+    }, []);
   
-  const onDisconnect = () => {
-    window.localStorage.removeItem('userAccount');
-    setConnection(false);
-    checkConnectedWallet();
-  };
-  const [isOpen, setIsOpen] = useState(false);
-  const toggling = () => {(!connection ? setIsOpen(!isOpen) && showDialog(!isOpen): setIsOpen(isOpen)/*open menu*/);}; 
-  return(
+    const onDisconnect = () => {
+        window.localStorage.removeItem('userAccount');
+        setConnection(false);
+        checkConnectedWallet();
+    };
+
+    //Connect Wallet Menu
+    const [isOpen, setIsOpen] = useState(false);
+    const toggling = () => { (!connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsOpen(isOpen)/*open menu*/); }; 
+
+    //Mobile Menu
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const togglingMobile = () => {
+        (!connection ? setIsMobileOpen(!isMobileOpen) &&
+            showDialog(!isMobileOpen) : setIsMobileOpen(isMobileOpen)/*open menu*/);
+    }; 
+
+    //User Profile Menu
+    const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
+
+    return(
       <>
           
           {isOpen && (
               <WalletDialog toggling={toggling } checkConnectedWallet={checkConnectedWallet}/>
-          ) }  
+            )}  
+
+          {isMobileOpen && (
+               <MobileMenu toggling={togglingMobile }/>
+             )}
+
+           {isUserProfileOpen && (
+                <UserProfile/>
+              )}
+
+
           <header>
               <div className="SiteMainHeadercontainer">
                   <Link to={'/'} className="SiteMainName">DFK Stake</Link>
-                  <Link to={'/'}><img src='./static/images/logo.png' /></Link>
+                  <Link to={'/'}><img src='./static/images/logo.png' alt="Home"/></Link>
               </div>
               <div className="Navigation">
                   <Link to={'Staking'}><div>Staking</div></Link>
                   <Link to={'AboutUs'}><div>About Us</div></Link>
               </div>
-              {/*
-              <div className="LanguageButton" onClick={toggleLanguageMenu}>
-                  <img src="./static/images/languageButton.png" />
+              
+                <LanguageMenu />
+
+              <div className="MobileButton">
+                  <img src="./static/images/mobileMenuButton.png" onClick={togglingMobile} alt="Menu"/>
               </div>
-              */}
               <div className="ConnectWalletButton">
                   <button onClick={toggling}>{user}</button>
                   {connection && (

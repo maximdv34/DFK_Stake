@@ -211,7 +211,7 @@ export function StakingGrid(props) {
                         <div className="GridNode" key={++id }>
                             <div className="GridNodeHeader">
                                 <div className="GridHeaderText">{item.name}</div>
-                                <div className="GridHeaderImage"><img src={item.image} alt="Crypto Image" /></div>
+                                <div className="GridHeaderImage"><img src={item.image} alt="Crypto" /></div>
                             </div>
                             <div className="GridNodeText">
                                 <div>Locked APY</div>
@@ -244,7 +244,7 @@ export function StakingGrid(props) {
                             <div className="GridNodeMobile">
                                 <div className="GridNodeMobileMainContainer">
                                     <div>{item.name}</div>
-                                    <div className="GridNodeMobilePhotoContainer"><img src={item.image} /></div>   
+                                    <div className="GridNodeMobilePhotoContainer"><img src={item.image} alt="Crypto"/></div>   
                                 </div>
                                 <div className="GridNodeMobileSecondContainer">
                                     <div className="GridNodeMobileLeftColumn">Locked APY</div>

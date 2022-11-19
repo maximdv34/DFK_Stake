@@ -6,7 +6,7 @@ export default function MainSign() {
         <>
             <div className="HomeMain">
                 DFK Stake
-                <img src='./static/images/logo.png' />
+                <img src='./static/images/logo.png' alt="Logo"/>
             </div>       
         </>
         );
