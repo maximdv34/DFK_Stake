@@ -81,8 +81,8 @@ function Header_Top() {
                <MobileMenu toggling={togglingMobile }/>
              )}
 
-           {isUserProfileOpen && (
-                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} />
+            {isUserProfileOpen && (
+                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} disconnect={setIsUserProfileOpen} />
               )}
 
 
@@ -102,7 +102,7 @@ function Header_Top() {
                   <img src="./static/images/mobileMenuButton.png" onClick={togglingMobile} alt="Menu"/>
               </div>
               <div className="ConnectWalletButton">
-                  <button onClick={toggling}>{user}</button>      
+                    <button onClick={toggling}>{user.slice(0, 7) + "...." + user.slice(-4)}</button>      
               </div>
             </header>
         </>
