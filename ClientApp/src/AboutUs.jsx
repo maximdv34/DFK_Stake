@@ -1,7 +1,7 @@
 import React from "react";
 /*import { Link } from "react-router-dom";*/
 import './styles/AboutUs.css';
-import MainSign from "./MainSign.jsx";
+import MainSign from "./mainSign.jsx";
 
 export default function AboutUs() {
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/MobileMenu.css';
 import { Link } from "react-router-dom";
-import MainSign from "./MainSign";
+import MainSign from "./mainSign";
 
 export default function MobileMenu(props) {
     return (

@@ -5,9 +5,9 @@ import Staking from './Staking';
 import AboutUs from './AboutUs';
 import './styles/App.css';
 import WalletDialog from './walletDialog';
-import MobileMenu from './MobileMenu';
-import UserProfile from './UserProfile';
-import LanguageMenu from './LanguageMenu';
+import MobileMenu from './mobileMenu';
+import UserProfile from './userProfile';
+import LanguageMenu from './languageMenu';
 
 function App() {
   return(
@@ -32,12 +32,14 @@ export function showDialog(toggle) {
 }
 
 function Header_Top() {
-    const [user, setUser] = useState("Connect Wallet");
+    const [user, setUser] = useState("");
+    const [balance, setBalance] = useState(0);
     const [connection, setConnection] = useState(false);
     function checkConnectedWallet() {
         const userData = JSON.parse(localStorage.getItem('userAccount'));
         if (userData != null) {
             setUser(userData.account);
+            setBalance(userData.balance);
             setConnection(true);
         }else{
             setConnection(false);
@@ -56,7 +58,7 @@ function Header_Top() {
 
     //Connect Wallet Menu
     const [isOpen, setIsOpen] = useState(false);
-    const toggling = () => { (!connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsOpen(isOpen)/*open menu*/); }; 
+    const toggling = () => { (!connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsUserProfileOpen(!isUserProfileOpen)); }; 
 
     //Mobile Menu
     const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -67,7 +69,7 @@ function Header_Top() {
 
     //User Profile Menu
     const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
-
+    
     return(
       <>
           
@@ -80,7 +82,7 @@ function Header_Top() {
              )}
 
            {isUserProfileOpen && (
-                <UserProfile/>
+                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} />
               )}
 
 
@@ -100,10 +102,7 @@ function Header_Top() {
                   <img src="./static/images/mobileMenuButton.png" onClick={togglingMobile} alt="Menu"/>
               </div>
               <div className="ConnectWalletButton">
-                  <button onClick={toggling}>{user}</button>
-                  {connection && (
-                    <button onClick={onDisconnect}>disconnect</button>
-                  ) }       
+                  <button onClick={toggling}>{user}</button>      
               </div>
             </header>
         </>
