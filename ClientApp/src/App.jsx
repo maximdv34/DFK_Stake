@@ -43,7 +43,6 @@ function Header_Top() {
             setConnection(true);
         }else{
             setConnection(false);
-            setUser("Connect Wallet");
         }
     }
     useEffect(() => {
@@ -102,7 +101,12 @@ function Header_Top() {
                   <img src="./static/images/mobileMenuButton.png" onClick={togglingMobile} alt="Menu"/>
               </div>
               <div className="ConnectWalletButton">
-                    <button onClick={toggling}>{user.slice(0, 7) + "...." + user.slice(-4)}</button>      
+              {connection && (
+                    <button onClick={toggling}>{user.slice(0, 7) + "...." + user.slice(-4)}</button>   
+                )}
+                {!connection && (
+                    <button onClick={toggling}>Connect Wallet</button>   
+                )}
               </div>
             </header>
         </>
