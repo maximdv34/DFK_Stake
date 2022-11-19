@@ -2,8 +2,7 @@ import React, { useState } from "react";
 /*import { Link } from "react-router-dom";*/
 import "./styles/Staking.css";
 
-import { showConnectWalletDialog } from './App.jsx';
-import { showMobileMenu } from './App.jsx';
+/*import { showMobileMenu } from './App.jsx';*/
 
 //Select lambda for sorting
 function sortSelector(order) {
@@ -239,7 +238,7 @@ export function StakingGrid(props) {
                                 {/*</div>*/}
 
                             <div className="GridNodeButton">
-                                <button onClick={showConnectWalletDialog }>Connect Wallet</button>
+                                <button /*onClick={showConnectWalletDialog }*/>Connect Wallet</button>
                             </div>
                             </div>
                             <div className="GridNodeMobile">
@@ -272,7 +271,7 @@ export function StakingGrid(props) {
                                 {/*</div>*/}
 
                                 <div className="GridNodeMobileButtonContainer">
-                                    <button onClick={showMobileMenu}>Connect Wallet</button>
+                                    <button /*onClick={showMobileMenu}*/>Connect Wallet</button>
                                 </div>
                             </div>
                             </>
@@ -387,7 +386,7 @@ export function StakeNodeList(props) {
                 {/*</div>*/}
 
                 <div className="ListNodeButtonContainer">
-                    <button onClick={showConnectWalletDialog}>Connect Wallet</button>
+                    <button /*onClick={showConnectWalletDialog}*/>Connect Wallet</button>
                 </div>
             </div>
         );

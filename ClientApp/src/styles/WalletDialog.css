@@ -1,5 +1,4 @@
 .WalletDialog {
-    display: none;
     position: absolute;
     background-color: rgba(50, 50, 50, 0.7);
     width: 100vw;
