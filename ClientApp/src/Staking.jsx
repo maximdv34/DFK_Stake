@@ -279,7 +279,7 @@ export function StakingGrid(props) {
 
                                 {!props.connection ? (
                                     <div className="GridNodeMobileButtonContainer">
-                                        <button /*onClick={showMobileMenu }*/>Connect Wallet</button>
+                                        <button /*onClick={showMobileMenu }*/ className="Cursor">Connect Wallet</button>
                                     </div>)
                                     :
                                     (
@@ -292,11 +292,11 @@ export function StakingGrid(props) {
                                                 <div className="GridNodeMobileRightWalletColumn">
                                                     <div>{item.name} earned</div>
                                                     <div>0.00000</div>
-                                                    <button>Collect</button>
+                                                    <button className="Cursor">Collect</button>
                                                 </div>
                                             </div>
                                             <div className="GridNodeMobileButtonContainer">
-                                                <button>Stake</button>
+                                                <button className="Cursor">Stake</button>
                                             </div>
                                         </>)
                                 }
@@ -418,6 +418,7 @@ export function StakeNodeList(props) {
                     <div>Total Staked</div>
                     <div>{props.item.total}</div>
                 </div>
+
                 <div className="ImageCont2">
                     <img className="ArrowImage ArrowImageFlip Cursor" alt="Arrow" src="./static/images/Arrow.png" onClick={changeExpanded} />
                 </div>
@@ -425,7 +426,7 @@ export function StakeNodeList(props) {
 
                 {!props.connection ? (
                     <div className="ListNodeButtonContainer">
-                        <button>Connect Wallet</button>
+                        <button className="Cursor">Connect Wallet</button>
                     </div>)
                     :
                     (
@@ -434,11 +435,11 @@ export function StakeNodeList(props) {
                                 <div className="ExpandedStakingListContainerItem">
                                     <div>{props.item.name } staked</div>
                                     <div>0.00000</div>
-                                    <button>Collect</button>
                                 </div>
                                 <div className="ExpandedStakingListContainerItem">
                                     <div>{props.item.name} earned</div>
                                     <div>0.00000</div>
+                                    <button>Collect</button>
                                 </div>
                         </div>
                         <div className="ListNodeButtonContainer">
@@ -482,7 +483,7 @@ export function StakeNodeList(props) {
 
                     {!props.connection ? (
                         <>
-                            <button className="ListNodeMobileExpandedConnectWallet">Connect Wallet</button>
+                            <button className="ListNodeMobileExpandedConnectWallet Cursor">Connect Wallet</button>
                         </>
                         )
                         :
@@ -498,10 +499,10 @@ export function StakeNodeList(props) {
                                             <div className="ListNodeMobileExpandedContainerSign">{props.item.name} earned</div>
                                             <div className="ListNodeMobileExpandedContainerSign">0.00000</div>
                                         </div>
-                                        <button className="ListNodeMobileExpandedButtonCollect">Collect</button>
+                                        <button className="ListNodeMobileExpandedButtonCollect Cursor">Collect</button>
                                     </div>
                                 </div>
-                                <button className="ListNodeMobileExpandedButtonStake">Stake</button>
+                                <button className="ListNodeMobileExpandedButtonStake Cursor">Stake</button>
                             </>
                         )}
             </div>
