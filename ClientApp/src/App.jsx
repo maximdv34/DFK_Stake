@@ -10,9 +10,12 @@ import UserProfile from './userProfile';
 import LanguageMenu from './languageMenu';
 
 function App() {
+    const [connection, setConnection] = useState(false);
+
+
   return(
-    <>
-    <Header_Top/> 
+      <>
+          <Header_Top connection={connection} setConnection={setConnection} /> 
     <Routes>  
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/Staking" element={<Staking/>} />
@@ -31,18 +34,18 @@ export function showDialog(toggle) {
     }
 }
 
-function Header_Top() {
+function Header_Top(props) {
     const [user, setUser] = useState("");
     const [balance, setBalance] = useState(0);
-    const [connection, setConnection] = useState(false);
+    
     function checkConnectedWallet() {
         const userData = JSON.parse(localStorage.getItem('userAccount'));
         if (userData != null) {
             setUser(userData.account);
             setBalance(userData.balance);
-            setConnection(true);
+            props.setConnection(true);
         }else{
-            setConnection(false);
+            props.setConnection(false);
         }
     }
     useEffect(() => {
@@ -51,23 +54,23 @@ function Header_Top() {
   
     const onDisconnect = () => {
         window.localStorage.removeItem('userAccount');
-        setConnection(false);
+        props.setConnection(false);
         checkConnectedWallet();
     };
 
     //Connect Wallet Menu
     const [isOpen, setIsOpen] = useState(false);
-    const toggling = () => { (!connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsUserProfileOpen(!isUserProfileOpen)); }; 
+    const toggling = () => { (!props.connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsUserProfileOpen(!isUserProfileOpen)); }; 
 
     //Mobile Menu
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const togglingMobile = () => {
-        (!connection ? setIsMobileOpen(!isMobileOpen) &&
+        (!props.connection ? setIsMobileOpen(!isMobileOpen) &&
             showDialog(!isMobileOpen) : setIsMobileOpen(isMobileOpen)/*open menu*/);
     }; 
 
     //User Profile Menu
-    const [isUserProfileOpen, setIsUserProfileOpen] = useState(true);
+    const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
     
     return(
       <>
@@ -101,10 +104,10 @@ function Header_Top() {
                   <img src="./static/images/mobileMenuButton.png" onClick={togglingMobile} alt="Menu"/>
               </div>
               <div className="ConnectWalletButton">
-              {connection && (
+              {props.connection && (
                     <button onClick={toggling}>{user.slice(0, 7) + "...." + user.slice(-4)}</button>   
                 )}
-                {!connection && (
+                {!props.connection && (
                     <button onClick={toggling}>Connect Wallet</button>   
                 )}
               </div>
