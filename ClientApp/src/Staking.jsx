@@ -45,7 +45,7 @@ function sortSelector(order) {
     }
 }
 
-export default function Staking() {
+export default function Staking(props) {
     //Buttons images
     const buttons = {
         gridActive: "./static/images/AlignButtons/GridActive.png",
@@ -151,7 +151,7 @@ export default function Staking() {
 
                     <div className="Grid">
                         <div className="StakesContainerGrid">
-                            <StakingGrid items={stakesState.items} sorting={sortBy} searchby={search }/>
+                            <StakingGrid items={stakesState.items} sorting={sortBy} searchby={search} connection={props.connection} />
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@ export default function Staking() {
                     </div>
 
                     <div className="StakesContainerList">
-                        <StakingList items={stakesState.items} sorting={sortBy} searchby={search} />
+                        <StakingList items={stakesState.items} sorting={sortBy} searchby={search} connection={props.connection} />
                     </div>
                 </div>
             </>
@@ -228,19 +228,33 @@ export function StakingGrid(props) {
                             <div className="GridNodeText">
                                 <div>Total staked</div>
                                 <div>{item.total }</div>
-                                </div>
-
-                                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/ }
-                                {/*<div className="ExpandedCollectContainer">*/}
-                                {/*    <div className="ListNodeExpandedCollectSign">{item.name} earned</div>*/}
-                                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
-                                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
-                                {/*</div>*/}
-
-                            <div className="GridNodeButton">
-                                <button /*onClick={showConnectWalletDialog }*/>Connect Wallet</button>
                             </div>
-                            </div>
+
+                                {!props.connection ? (
+                                    <div className="GridNodeButton">
+                                        <button /*onClick={showConnectWalletDialog }*/>Connect Wallet</button>
+                                    </div>)
+                                    :
+                                    (
+                                        <>
+                                            <div className="GridNodeTextWallet">
+                                                <div className="GridNodeTextWalletColumn">
+                                                    <div>{item.name } staked</div>
+                                                    <div>0.00000</div>
+                                                </div>
+                                                <div className="GridNodeTextWalletColumn">
+                                                    <div>{item.name} earned</div>
+                                                    <div>0.00000</div>
+                                                    <button className="Cursor">Collect</button>
+                                                </div>
+                                            </div>
+                                            <div className="GridNodeButton">
+                                                <button>Stake</button>
+                                            </div>
+                                        </>)
+                                }
+                            
+                        </div>
                             <div className="GridNodeMobile">
                                 <div className="GridNodeMobileMainContainer">
                                     <div>{item.name}</div>
@@ -263,18 +277,31 @@ export function StakingGrid(props) {
                                     <div className="GridNodeMobileRightColumn">{item.total}</div>
                                 </div>
 
-                                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/}
-                                {/*<div className="ExpandedCollectContainer">*/}
-                                {/*    <div className="ListNodeExpandedCollectSign">{item.name} earned</div>*/}
-                                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
-                                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
-                                {/*</div>*/}
-
-                                <div className="GridNodeMobileButtonContainer">
-                                    <button /*onClick={showMobileMenu}*/>Connect Wallet</button>
-                                </div>
+                                {!props.connection ? (
+                                    <div className="GridNodeMobileButtonContainer">
+                                        <button /*onClick={showMobileMenu }*/>Connect Wallet</button>
+                                    </div>)
+                                    :
+                                    (
+                                        <>
+                                            <div className="GridNodeMobileSecondContainer">
+                                                <div className="GridNodeMobileLeftWalletColumn">
+                                                    <div>{item.name} staked</div>
+                                                    <div>0.00000</div>
+                                                </div>
+                                                <div className="GridNodeMobileRightWalletColumn">
+                                                    <div>{item.name} earned</div>
+                                                    <div>0.00000</div>
+                                                    <button>Collect</button>
+                                                </div>
+                                            </div>
+                                            <div className="GridNodeMobileButtonContainer">
+                                                <button>Stake</button>
+                                            </div>
+                                        </>)
+                                }
                             </div>
-                            </>
+                        </>
                 );
             })}
             
@@ -297,7 +324,7 @@ export function StakingList(props) {
                         return (
                             <>
                                 <div key={id} className="ListNodeWrapper">
-                                    <StakeNodeList item={item}/>
+                                    <StakeNodeList item={item} connection={props.connection } />
                                 </div>
                             </>
                            );
@@ -318,6 +345,7 @@ export function StakeNodeList(props) {
     //Render
     if (!expanded) {
         return (
+            <>
             <div className="ListNode">
                 <div className="ImageCont1">
                     <img className="Image" alt="CryptoImage" src={props.item.image} />
@@ -345,12 +373,29 @@ export function StakeNodeList(props) {
                     <img className="ArrowImage Cursor" alt="Arrow" src="./static/images/Arrow.png" onClick={changeExpanded} />
                 </div>
             </div>
+            <div className="ListNodeMobile">
+                    <img className="ListNodeMobileImage" src={props.item.image} />
+                    <div className="ListNodeMobileName">{props.item.name}</div>
+                    <div className="ListNodeMobileAPY">
+                        <div>Locked APY</div>
+                        <div>{props.item.locked }%</div>
+                    </div>
+                    <div className="ListNodeMobileAPY">
+                        <div>Flexible APY</div>
+                        <div>{props.item.flexible}%</div>
+                    </div>
+                    <div className="ListNodeMobileExpandButton">
+                        <img src="./static/images/Arrow.png" onClick={changeExpanded} />
+                    </div>
+            </div>
+            </>
         );
     }
     else {
         return (
+            <>
             <div className="ListNodeExpanded" key={props.item.id }>
-            <div className="ListNode">
+                <div className="ListNode">
                 <div className="ImageCont1">
                     <img className="Image" alt="CryptoImage" src={props.item.image} />
                 </div>
@@ -378,17 +423,89 @@ export function StakeNodeList(props) {
                 </div>
                 </div>
 
-                {/*EXPANDED COLLECT CONTAINER WHICH REQUIRES WALLET CONNECTION*/}
-                {/*<div className="ExpandedCollectContainer">*/}
-                {/*    <div className="ListNodeExpandedCollectSign">{props.item.name} earned</div>*/}
-                {/*    <div className="ListNodeExpandedCollectSign">0.000000</div>*/}
-                {/*    <button className="ListNodeExpandedCollectButton">Collect</button>*/}
-                {/*</div>*/}
-
-                <div className="ListNodeButtonContainer">
-                    <button /*onClick={showConnectWalletDialog}*/>Connect Wallet</button>
-                </div>
+                {!props.connection ? (
+                    <div className="ListNodeButtonContainer">
+                        <button>Connect Wallet</button>
+                    </div>)
+                    :
+                    (
+                        <>
+                        <div className="ExpandedStakingListContainer">
+                                <div className="ExpandedStakingListContainerItem">
+                                    <div>{props.item.name } staked</div>
+                                    <div>0.00000</div>
+                                    <button>Collect</button>
+                                </div>
+                                <div className="ExpandedStakingListContainerItem">
+                                    <div>{props.item.name} earned</div>
+                                    <div>0.00000</div>
+                                </div>
+                        </div>
+                        <div className="ListNodeButtonContainer">
+                             <button >Stake</button>
+                        </div>
+                        </>)
+                }
+                
             </div>
+            <div className="ListNodeMobileExpanded">
+                <div className="ListNodeMobile WidthRemove">
+                    <img className="ListNodeMobileImage" src={props.item.image} />
+                    <div className="ListNodeMobileName">{props.item.name}</div>
+                    <div className="ListNodeMobileAPY">
+                        <div>Locked APY</div>
+                        <div>{props.item.locked}%</div>
+                    </div>
+                    <div className="ListNodeMobileAPY">
+                        <div>Flexible APY</div>
+                        <div>{props.item.flexible}%</div>
+                    </div>
+                    <div className="ListNodeMobileExpandButton">
+                        <img className="ArrowImageFlip" src="./static/images/Arrow.png" onClick={changeExpanded} />
+                    </div>
+                </div>
+
+                <div className="ListNodeMobileExpandedRow">
+                    <div className="ListNodeMobileExpandedContainer LNMEC F18">
+                        <div>
+                            <div className="ListNodeMobileExpandedContainerSign">Reward payout every:</div>
+                            <div className="ListNodeMobileExpandedContainerSign">{props.item.time}h</div>
+                        </div>
+                    </div>
+                    <div className="ListNodeMobileExpandedContainer LNMEC F18">
+                        <div>
+                            <div className="ListNodeMobileExpandedContainerSign">Total staked:</div>
+                            <div className="ListNodeMobileExpandedContainerSign">{props.item.total}</div>
+                        </div>
+                    </div>
+                    </div>
+
+                    {!props.connection ? (
+                        <>
+                            <button className="ListNodeMobileExpandedConnectWallet">Connect Wallet</button>
+                        </>
+                        )
+                        :
+                        (
+                            <>
+                                <div className="ListNodeMobileExpandedContainer StakedWrap">
+                                    <div className="ListNodeMobileExpandedContainerSign F20">{props.item.name} staked</div>
+                                    <div className="ListNodeMobileExpandedContainerSign F20">0.00000</div>
+                                </div>
+                                <div className="ListNodeMobileExpandedContainer StretchColumn">
+                                    <div className="ListNodeMobileExpandedContainerColumn">
+                                        <div className="ListNodeMobileExpandedContainerRow F20">
+                                            <div className="ListNodeMobileExpandedContainerSign">{props.item.name} earned</div>
+                                            <div className="ListNodeMobileExpandedContainerSign">0.00000</div>
+                                        </div>
+                                        <button className="ListNodeMobileExpandedButtonCollect">Collect</button>
+                                    </div>
+                                </div>
+                                <button className="ListNodeMobileExpandedButtonStake">Stake</button>
+                            </>
+                        )}
+            </div>
+            </>
         );
     }
 }

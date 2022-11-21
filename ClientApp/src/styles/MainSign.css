@@ -19,3 +19,22 @@
     width: 128px;
     height: 128px;
 }
+
+
+.HomeMainMobile {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+}
+
+.HomeMainMobile img {
+    display: flex;
+    width: 75px;
+    height: 75px;
+}

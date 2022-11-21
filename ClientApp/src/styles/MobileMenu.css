@@ -1,4 +1,5 @@
 .MobileMenuBackground {
+    z-index: 99;
     display: flex;
     position: absolute;
     width: 100vw;
@@ -52,7 +53,12 @@
     cursor: pointer;
 }
 
-.MobileMenuPlaceHolder{
+.DisconnectMobileButton{
+    width: 90%;
+    margin-top: 30px;
+}
+
+.MobileMenuPlaceHolder {
     display: flex;
     flex-grow: 1;
 }
@@ -60,5 +66,20 @@
 @media only screen and (min-width: 1000px){
     .MobileMenuBackground{
         display: none;
+    }
+    .MobileMenuButton{
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .MobileMenuButton {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .MobileMenuWalletInfo {
+        gap: 10px;
     }
 }

@@ -34,7 +34,7 @@ export default function UserProfile(props) {
                   <div onClick={copyWalletIdToClipboard }>
                         {accountDisplay}
                   </div>
-                  </div>
+            </div>
                     {copiedToClipboard ? (
                   <div className="UserProfileCopiedToClipboard">
                     Copied to clipboard
@@ -43,6 +43,7 @@ export default function UserProfile(props) {
                         } 
 
             <div className="UserProfileDataContainer">
+                <img src="./static/images/UserImages/CashImage.png" alt="Cash" />
                 <div>
                  {props.balance}$
                 </div>

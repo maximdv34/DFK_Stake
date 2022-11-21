@@ -15,12 +15,12 @@ function App() {
 
   return(
       <>
-          <Header_Top connection={connection} setConnection={setConnection} /> 
-    <Routes>  
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/Staking" element={<Staking/>} />
-        <Route exact path="/AboutUs" element={<AboutUs/>} />
-    </Routes>
+        <Header_Top connection={connection} setConnection={setConnection} /> 
+        <Routes>  
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/Staking" element={<Staking connection={connection} />} />
+                <Route exact path="/AboutUs" element={<AboutUs/>} />
+        </Routes>
     </>
     );
 }
@@ -65,13 +65,14 @@ function Header_Top(props) {
     //Mobile Menu
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const togglingMobile = () => {
-        (!props.connection ? setIsMobileOpen(!isMobileOpen) &&
-            showDialog(!isMobileOpen) : setIsMobileOpen(isMobileOpen)/*open menu*/);
+        setIsMobileOpen(!isMobileOpen);
     }; 
 
     //User Profile Menu
     const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
-    
+
+    const AccountDisplay = user.slice(0, 7) + "...." + user.slice(-4);
+
     return(
       <>
           
@@ -79,12 +80,15 @@ function Header_Top(props) {
               <WalletDialog toggling={toggling } checkConnectedWallet={checkConnectedWallet}/>
             )}  
 
-          {isMobileOpen && (
-               <MobileMenu toggling={togglingMobile }/>
+            {isMobileOpen && (
+                <MobileMenu toggling={togglingMobile} connection={props.connection}
+                    setConnection={props.setConnection} accountDisplay={AccountDisplay} balance={balance}
+                    onDisconnect={onDisconnect} />
              )}
 
             {isUserProfileOpen && (
-                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance} disconnect={setIsUserProfileOpen} toggle={setIsUserProfileOpen} />
+                <UserProfile onDisconnect={onDisconnect} account={user} balance={balance}
+                    disconnect={setIsUserProfileOpen} toggle={setIsUserProfileOpen} />
               )}
 
 
@@ -105,7 +109,7 @@ function Header_Top(props) {
               </div>
               <div className="ConnectWalletButton">
               {props.connection && (
-                    <button onClick={toggling}>{user.slice(0, 7) + "...." + user.slice(-4)}</button>   
+                        <button onClick={toggling}>{AccountDisplay}</button>   
                 )}
                 {!props.connection && (
                     <button onClick={toggling}>Connect Wallet</button>   
