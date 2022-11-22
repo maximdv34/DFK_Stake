@@ -83,7 +83,8 @@ function Header_Top(props) {
             {isMobileOpen && (
                 <MobileMenu toggling={togglingMobile} connection={props.connection}
                     setConnection={props.setConnection} accountDisplay={AccountDisplay} balance={balance}
-                    onDisconnect={onDisconnect} />
+                    onDisconnect={onDisconnect}
+                    togglingConnection={toggling} />
              )}
 
             {isUserProfileOpen && (

@@ -16,7 +16,7 @@ export default function MobileMenu(props) {
 
                     {!props.connection ?
                         (
-                            <button className="MobileMenuButton" onClick={props.toggling}>ConnectWallet</button>) 
+                            <button className="MobileMenuButton" onClick={() => { props.toggling(); props.togglingConnection(); }}>ConnectWallet</button>) 
                         :
                         (
                             <>

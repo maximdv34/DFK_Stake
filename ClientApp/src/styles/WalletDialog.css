@@ -98,3 +98,51 @@
     display: flex;
     text-align: center;
 }
+
+
+@media only screen and (max-width: 700px){
+    .MainDialog{
+        width: 450px;
+        padding: unset;
+    }
+    .MainDialogOptions{
+        width: 70%;
+    }
+    .MainDialogMainSign{
+        font-size: 24px;
+    }
+    .MainDialogText div{
+        font-size: 16px;
+    }
+    .OptionImage img{
+        width: 32px;
+        height: 32px;
+    }
+    .OptionText{
+        font-size: 16px;
+    }
+    .MainDialogOptionContainer{
+        width: 64px;
+        height: 64px;
+    }
+    .OptionImage img:hover {
+        height: 64px;
+        width: 64px;
+        transition-property: unset;
+        transition-duration: unset;
+        transition-timing-function: unset;
+    }
+    .MainDialogOptionsRow{
+        margin-bottom: 30px;
+    }
+    .Close{
+        margin-top: 30px;
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .MainDialog {
+        width: 300px;
+    }
+}
