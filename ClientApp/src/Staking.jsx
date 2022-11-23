@@ -151,7 +151,8 @@ export default function Staking(props) {
 
                     <div className="Grid">
                         <div className="StakesContainerGrid">
-                            <StakingGrid items={stakesState.items} sorting={sortBy} searchby={search} connection={props.connection} />
+                            <StakingGrid items={stakesState.items} sorting={sortBy} searchby={search}
+                                connection={props.connection} toggleWalletConnection={props.toggleWalletConnection} />
                         </div>
                     </div>
                 </div>
@@ -186,7 +187,8 @@ export default function Staking(props) {
                     </div>
 
                     <div className="StakesContainerList">
-                        <StakingList items={stakesState.items} sorting={sortBy} searchby={search} connection={props.connection} />
+                        <StakingList items={stakesState.items} sorting={sortBy} searchby={search} connection={props.connection}
+                            toggleWalletConnection={props.toggleWalletConnection }/>
                     </div>
                 </div>
             </>
@@ -232,7 +234,7 @@ export function StakingGrid(props) {
 
                                 {!props.connection ? (
                                     <div className="GridNodeButton">
-                                        <button /*onClick={showConnectWalletDialog }*/>Connect Wallet</button>
+                                        <button onClick={props.toggleWalletConnection}>Connect Wallet</button>
                                     </div>)
                                     :
                                     (
@@ -279,7 +281,7 @@ export function StakingGrid(props) {
 
                                 {!props.connection ? (
                                     <div className="GridNodeMobileButtonContainer">
-                                        <button /*onClick={showMobileMenu }*/ className="Cursor">Connect Wallet</button>
+                                        <button onClick={props.toggleWalletConnection } className="Cursor">Connect Wallet</button>
                                     </div>)
                                     :
                                     (
@@ -324,7 +326,7 @@ export function StakingList(props) {
                         return (
                             <>
                                 <div key={id} className="ListNodeWrapper">
-                                    <StakeNodeList item={item} connection={props.connection } />
+                                    <StakeNodeList item={item} connection={props.connection} toggleWalletConnection={props.toggleWalletConnection }/>
                                 </div>
                             </>
                            );
@@ -425,8 +427,8 @@ export function StakeNodeList(props) {
                 </div>
 
                 {!props.connection ? (
-                    <div className="ListNodeButtonContainer">
-                        <button className="Cursor">Connect Wallet</button>
+                        <div className="ListNodeButtonContainer">
+                            <button className="Cursor" onClick={props.toggleWalletConnection }>Connect Wallet</button>
                     </div>)
                     :
                     (
@@ -483,7 +485,8 @@ export function StakeNodeList(props) {
 
                     {!props.connection ? (
                         <>
-                            <button className="ListNodeMobileExpandedConnectWallet Cursor">Connect Wallet</button>
+                            <button className="ListNodeMobileExpandedConnectWallet Cursor"
+                                onClick={props.toggleWalletConnection}>Connect Wallet</button>
                         </>
                         )
                         :

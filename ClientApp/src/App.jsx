@@ -9,29 +9,38 @@ import MobileMenu from './mobileMenu';
 import UserProfile from './userProfile';
 import LanguageMenu from './languageMenu';
 
+export function showDialog(toggle) {
+    if (toggle) {
+        document.body.style.position = 'fixed';
+    }
+    else {
+        document.body.style.position = 'initial';
+    }
+}
+
 function App() {
     const [connection, setConnection] = useState(false);
 
+    //User Profile Menu
+    const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
+
+    //Connect Wallet Menu
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggling = () => { (!connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsUserProfileOpen(!isUserProfileOpen)); }; 
 
   return(
       <>
-        <Header_Top connection={connection} setConnection={setConnection} /> 
+          <Header_Top connection={connection} setConnection={setConnection}
+              toggleWalletConnection={toggling} setIsUserProfileOpen={setIsUserProfileOpen} setIsOpen={setIsOpen}
+              isOpen={isOpen} isUserProfileOpen={isUserProfileOpen} /> 
         <Routes>  
                 <Route exact path="/" element={<Home />} />
-                <Route exact path="/Staking" element={<Staking connection={connection} />} />
+              <Route exact path="/Staking" element={<Staking connection={connection} toggleWalletConnection={toggling}/>} />
                 <Route exact path="/AboutUs" element={<AboutUs/>} />
         </Routes>
     </>
     );
-}
-
-export function showDialog(toggle) {
-    if (toggle) {
-      document.body.style.position = 'fixed';
-    }
-    else {
-      document.body.style.position = 'initial';
-    }
 }
 
 function Header_Top(props) {
@@ -58,38 +67,31 @@ function Header_Top(props) {
         checkConnectedWallet();
     };
 
-    //Connect Wallet Menu
-    const [isOpen, setIsOpen] = useState(false);
-    const toggling = () => { (!props.connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsUserProfileOpen(!isUserProfileOpen)); }; 
-
     //Mobile Menu
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const togglingMobile = () => {
         setIsMobileOpen(!isMobileOpen);
     }; 
 
-    //User Profile Menu
-    const [isUserProfileOpen, setIsUserProfileOpen] = useState(false);
-
     const AccountDisplay = user.slice(0, 7) + "...." + user.slice(-4);
 
     return(
       <>
           
-          {isOpen && (
-              <WalletDialog toggling={toggling } checkConnectedWallet={checkConnectedWallet}/>
+          {props.isOpen && (
+                <WalletDialog toggling={props.toggleWalletConnection } checkConnectedWallet={checkConnectedWallet}/>
             )}  
 
             {isMobileOpen && (
                 <MobileMenu toggling={togglingMobile} connection={props.connection}
                     setConnection={props.setConnection} accountDisplay={AccountDisplay} balance={balance}
                     onDisconnect={onDisconnect}
-                    togglingConnection={toggling} />
+                    togglingConnection={props.toggleWalletConnection} />
              )}
 
-            {isUserProfileOpen && (
+            {props.isUserProfileOpen && (
                 <UserProfile onDisconnect={onDisconnect} account={user} balance={balance}
-                    disconnect={setIsUserProfileOpen} toggle={setIsUserProfileOpen} />
+                    /*disconnect={props.setIsUserProfileOpen}*/ toggle={props.setIsUserProfileOpen} />
               )}
 
 
@@ -110,10 +112,10 @@ function Header_Top(props) {
               </div>
               <div className="ConnectWalletButton">
               {props.connection && (
-                        <button onClick={toggling}>{AccountDisplay}</button>   
+                        <button onClick={props.toggleWalletConnection}>{AccountDisplay}</button>   
                 )}
                 {!props.connection && (
-                    <button onClick={toggling}>Connect Wallet</button>   
+                        <button onClick={props.toggleWalletConnection}>Connect Wallet</button>   
                 )}
               </div>
             </header>
