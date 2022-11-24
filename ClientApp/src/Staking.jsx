@@ -73,10 +73,10 @@ export default function Staking(props) {
                 items: [
                     { name: "BTC", locked: 25.5, flexible: 31.2, time: 6.5, total: 1234567, image: "./static/images/CryptoImages/Bitcoin.png" },
                     { name: "ETH", locked: 10.2, flexible: 19.8, time: 1.2, total: 7654321, image: "./static/images/CryptoImages/Ethereum.png" },
-                    { name: "MATIC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoImages/CryptoPlaceholder.png" },
-                    { name: "MANA", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoImages/CryptoPlaceholder.png" },
-                    { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoImages/CryptoPlaceholder.png" },
-                    { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoImages/CryptoPlaceholder.png" }
+                    { name: "MATIC", locked: 18.9, flexible: 11.1, time: 3.3, total: 1112223, image: "./static/images/CryptoImages/Matic.png" },
+                    { name: "MANA", locked: 40.0, flexible: 9.78, time: 0.3, total: 8646748, image: "./static/images/CryptoImages/Mana.png" },
+                    { name: "AVAX", locked: 12.3, flexible: 5.9, time: 7.9, total: 6588579, image: "./static/images/CryptoImages/Avax.png" },
+                    { name: "BNB", locked: 85.6, flexible: 12.45, time: 11.9, total: 978648, image: "./static/images/CryptoImages/Bnb.png" }
             ],
                 areset: true
             });
