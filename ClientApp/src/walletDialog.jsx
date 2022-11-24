@@ -65,7 +65,10 @@ async function connectToMetamask(checkConnectedWallet){
 }
 export default function WalletDialog(props) {
     return (
-      <div className="WalletDialog WalletDialogOpen" id="wall">
+        <>
+        <div className="WalletDialogBackground">
+        </div>
+        <div className="WalletDialog">
           <div className="MainDialog">
               <div className="Close">
                   <img src="./static/images/ConnectWallet/close.png" onClick={props.toggling} alt="Close"/>
@@ -120,6 +123,7 @@ export default function WalletDialog(props) {
                   </div>
               </div>
           </div>
-      </div>
+       </div>
+       </>
     );
 }

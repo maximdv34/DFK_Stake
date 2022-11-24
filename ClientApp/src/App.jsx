@@ -9,15 +9,6 @@ import MobileMenu from './mobileMenu';
 import UserProfile from './userProfile';
 import LanguageMenu from './languageMenu';
 
-export function showDialog(toggle) {
-    if (toggle) {
-        document.body.style.position = 'fixed';
-    }
-    else {
-        document.body.style.position = 'initial';
-    }
-}
-
 function App() {
     const [connection, setConnection] = useState(false);
 
@@ -27,7 +18,7 @@ function App() {
     //Connect Wallet Menu
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggling = () => { (!connection ? setIsOpen(!isOpen) && showDialog(!isOpen) : setIsUserProfileOpen(!isUserProfileOpen)); }; 
+    const toggling = () => { (!connection ? setIsOpen(!isOpen) : setIsUserProfileOpen(!isUserProfileOpen)); }; 
 
   return(
       <>
@@ -91,7 +82,7 @@ function Header_Top(props) {
 
             {props.isUserProfileOpen && (
                 <UserProfile onDisconnect={onDisconnect} account={user} balance={balance}
-                    /*disconnect={props.setIsUserProfileOpen}*/ toggle={props.setIsUserProfileOpen} />
+                    toggle={props.setIsUserProfileOpen} />
               )}
 
 
