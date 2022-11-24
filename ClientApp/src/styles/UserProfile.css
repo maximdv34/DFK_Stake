@@ -1,7 +1,8 @@
 /*User Profile*/
 .UserProfile {
     color: white;
-    position: absolute;
+    /*position: absolute;*/
+    position: fixed;
     height: 350px;
     width: 270px;
     display: flex;
@@ -15,6 +16,15 @@
     gap: 12px;
     border-radius: 0px 0px 38px 38px;
     z-index: 100;
+}
+
+.UserProfileBackground{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
 }
 
 .UserProfileLogo {

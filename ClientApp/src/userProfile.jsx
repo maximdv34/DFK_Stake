@@ -20,6 +20,8 @@ export default function UserProfile(props) {
     };
 
     return (
+        <>
+        <div className="UserProfileBackground" onClick={() => { props.toggle(false); } }></div>
         <div className="UserProfile">
             <div className="UserProfileLogo">
                 <div className="UserProfileLogoName">
@@ -54,6 +56,7 @@ export default function UserProfile(props) {
             <div className="UserProfileCloseButton">
                 <button onClick={() => { props.toggle(false); }}>Close</button>
             </div>
-        </div>
+            </div>
+            </>
         );
 }

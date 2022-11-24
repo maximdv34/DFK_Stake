@@ -68,7 +68,7 @@ export default function WalletDialog(props) {
         <>
         <div className="WalletDialogBackground">
         </div>
-        <div className="WalletDialog">
+            <div className="WalletDialog" onClick={props.toggling}>
           <div className="MainDialog">
               <div className="Close">
                   <img src="./static/images/ConnectWallet/close.png" onClick={props.toggling} alt="Close"/>

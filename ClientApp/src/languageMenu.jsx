@@ -14,7 +14,10 @@ export default function LanguageMenu(props){
                 <img src="./static/images/languageButton.png" alt="LanguageChange" />
         </div>
 
-        { isOpen && (
+            {isOpen && (
+                <>
+            <div onClick={toggle} className="LanguageMenuBackground">
+            </div>
             <div id="language" className="LanguageMenu">
                     <div className="LanguageMenuRow" onClick={toggle}>
                         <div className="LanguageMenuFlagContainer"><img src="./static/images/Languages/English.png" alt="English" /></div>
@@ -25,6 +28,7 @@ export default function LanguageMenu(props){
                     <div className="LanguageMenuSignContainer">Ukrainian</div>
                 </div>
             </div>
+            </>
             )}
         </>
         );
