@@ -1,12 +1,17 @@
+using ServerApp.Services;
+using System.Reflection;
+
 namespace ServerApp
 {
-    
+
     public class Program
     {
         //Main
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly(), true);
 
             ConfigureServices(builder.Services);
 
@@ -34,6 +39,8 @@ namespace ServerApp
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSingleton<IDataBaseConnectionProvider, MySqlConnectionProvider>();
         } 
 
     }
